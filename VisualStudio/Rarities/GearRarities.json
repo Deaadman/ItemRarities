@@ -1,0 +1,36 @@
+{
+  "Common": [
+    "FIRELOG",
+    "Firelog"
+  ],
+
+  "Uncommon": [
+    "DISTRESS PISTOL",
+    "Distress Pistol"
+  ],
+
+  "Rare": [
+    "HUNTING RIFLE",
+    "Hunting Rifle"
+  ],
+
+  "Epic": [
+    "REVOLVER",
+    "Revolver"
+  ],
+
+  "Legendary": [
+    "NEW JEANS",
+    "New Jeans"
+  ],
+
+  "Mythic": [
+    "PAINKILLERS",
+    "Painkillers"
+  ],
+
+  "Story": [
+    "BANDAGE",
+    "Bandage"
+  ]
+}

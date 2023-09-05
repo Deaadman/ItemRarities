@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- These define the critical project details. Such as the net version, C# language version, null enable and do not generate assembly info (we need a custom one) -->
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<LangVersion>Latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- This should point to wherever your games primary EXE is -->
+		<TheLongDarkPath>F:\SteamLibrary\steamapps\common\TheLongDark</TheLongDarkPath>
+		<ReleaseFolderPath>D:\The Long Dark\Mods\ItemRarities\Release</ReleaseFolderPath>
+	</PropertyGroup>
+
+	<!-- List of used references -->
+	<ItemGroup>
+		<!-- This is the base reference. MUST EXIST -->
+		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.17.0" />
+		<!-- This is only if you use the ModSettings -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" /> -->
+	</ItemGroup>
+
+	<!-- Most commonly used using's. Add to this so you dont need to define them in the cs files -->
+	<ItemGroup>
+		<Using Include="System.Reflection" />
+		<Using Include="System.Diagnostics.CodeAnalysis" />
+		<Using Include="Il2Cpp" />
+		<Using Include="HarmonyLib" />
+		<Using Include="MelonLoader" />
+		<Using Include="UnityEngine" />
+		<!-- Only if your using ModSettings -->
+		<!-- <Using Include="ModSettings" /> -->
+		<!-- Only if your using ModComponent -->
+		<!-- <Using Include="ModComponent" /> -->
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Rarities\" />
+	</ItemGroup>
+
+	<!-- This is a build event. It will copy your dll to the currently defined TheLongDarkPath's Mods folder -->
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<!-- This copies the mods files to the games mod dir -->
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(TheLongDarkPath)/Mods" />
+		<!-- This copies the mods files to a designated release folder. Speeds up finding the dll after a build -->
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ReleaseFolderPath)" />
+	</Target>
+</Project>

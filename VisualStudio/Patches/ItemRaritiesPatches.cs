@@ -11,7 +11,7 @@ namespace ItemRarities
             if (__instance.m_ItemNameLabel == null) return;
 
             string displayedName = __instance.m_ItemNameLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(displayedName) ? gearRarities[displayedName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(displayedName) ? gearRarities[displayedName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -39,7 +39,7 @@ namespace ItemRarities
             if (__instance.m_Item_Label == null) return;
 
             string itemName = __instance.m_Item_Label.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -69,7 +69,7 @@ namespace ItemRarities
             if (__instance.m_ItemDescriptionPage == null || __instance.m_ItemDescriptionPage.m_ItemNameLabel == null) return;
 
             string itemName = __instance.m_ItemDescriptionPage.m_ItemNameLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (clothingRarityLabel == null)
@@ -99,7 +99,7 @@ namespace ItemRarities
             if (__instance.m_SelectedName == null) return;
 
             string itemName = __instance.m_SelectedName.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -129,7 +129,7 @@ namespace ItemRarities
             if (__instance.m_Label_CookedItemName == null) return;
 
             string itemName = __instance.m_Label_CookedItemName.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -175,7 +175,7 @@ namespace ItemRarities
             if (actualHUDPanel == null || actualHUDPanel.m_InspectMode_Title == null) return;
 
             string itemName = actualHUDPanel.m_InspectMode_Title.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -224,7 +224,7 @@ namespace ItemRarities
             if (__instance.m_SegmentLabel == null) return;
 
             string itemName = __instance.m_SegmentLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (excludedNames.Contains(itemName))
@@ -273,7 +273,7 @@ namespace ItemRarities
             if (__instance.m_NameLabel == null) return;
 
             string itemName = __instance.m_NameLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -310,7 +310,7 @@ namespace ItemRarities
                 if (__instance.m_Label == null) return;
 
                 string itemName = __instance.m_Label.text;
-                Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.ERROR;
+                Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
                 Color rarityColor = GetColorForRarity(itemRarity);
 
                 if (excludedNames.Contains(itemName))

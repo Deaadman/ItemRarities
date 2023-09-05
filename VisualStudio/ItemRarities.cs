@@ -45,7 +45,7 @@ namespace ItemRarities
                     return ColorUtility.TryParseHtmlString("#edc643", out Color mythicColor) ? mythicColor : Color.yellow;
                 case Rarity.Story:
                     return ColorUtility.TryParseHtmlString("#47bcb3", out Color storyColor) ? storyColor : Color.cyan;
-                case Rarity.ERROR: return Color.red;
+                case Rarity.INVALIDRARITY: return Color.red;
                 case Rarity.Default: return Color.white;
                 default: return Color.white;
             }

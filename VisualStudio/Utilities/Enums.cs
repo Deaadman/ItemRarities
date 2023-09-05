@@ -10,7 +10,7 @@
         Mythic,
 
         Story,
-        ERROR,
+        INVALIDRARITY,
         Default,
     }
 }

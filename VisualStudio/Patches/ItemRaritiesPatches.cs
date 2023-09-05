@@ -1,4 +1,5 @@
-﻿using static ItemRarities.Main;
+﻿using Il2CppTLD.Cooking;
+using static ItemRarities.Main;
 
 namespace ItemRarities
 {
@@ -6,12 +7,12 @@ namespace ItemRarities
     public static class ItemDescriptionPage_RarityLabelPatch
     {
         static UILabel? rarityLabel;
-        static void Postfix(ItemDescriptionPage __instance)
+        static void Postfix(ItemDescriptionPage __instance, GearItem gi)
         {
             if (__instance.m_ItemNameLabel == null) return;
 
-            string displayedName = __instance.m_ItemNameLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(displayedName) ? gearRarities[displayedName] : Rarity.INVALIDRARITY;
+            string itemName = gi.name;
+            Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -38,8 +39,8 @@ namespace ItemRarities
         {
             if (__instance.m_Item_Label == null) return;
 
-            string itemName = __instance.m_Item_Label.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            string itemName = __instance.m_GearItem.name;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -59,17 +60,17 @@ namespace ItemRarities
         }
     }
 
-    [HarmonyPatch(typeof(Panel_Clothing), nameof(Panel_Clothing.RefreshVisuals))]
+    [HarmonyPatch(typeof(Panel_Clothing), nameof(Panel_Clothing.GetCurrentlySelectedGearItem))]
     public static class PanelClothing_RarityLabelPatch
     {
         static UILabel? clothingRarityLabel;
 
-        static void Postfix(Panel_Clothing __instance)
+        static void Postfix(Panel_Clothing __instance, ref GearItem __result)
         {
             if (__instance.m_ItemDescriptionPage == null || __instance.m_ItemDescriptionPage.m_ItemNameLabel == null) return;
 
-            string itemName = __instance.m_ItemDescriptionPage.m_ItemNameLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            string itemName = __result.name;
+            Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (clothingRarityLabel == null)
@@ -89,7 +90,8 @@ namespace ItemRarities
         }
     }
 
-    [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Update))] // Need to find an alternative method. RefreshSelectedBlueprint is a possibly candidate but only calls when a method is calaced
+    // Need to find an alternative method - and a way to get the GearItem for the rarity to change. RefreshSelectedBlueprint is a possibly candidate but only calls when a a blueprint is selected so its blank to begin with.
+    [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Update))] 
     public static class PanelCrafting_RarityLabelPatch
     {
         static UILabel? rarityLabel;
@@ -99,7 +101,7 @@ namespace ItemRarities
             if (__instance.m_SelectedName == null) return;
 
             string itemName = __instance.m_SelectedName.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -119,17 +121,26 @@ namespace ItemRarities
         }
     }
 
-    [HarmonyPatch(typeof(Panel_Cooking), nameof(Panel_Cooking.Update))] // Need to find an alternative method.
+    [HarmonyPatch(typeof(Panel_Cooking), nameof(Panel_Cooking.GetSelectedCookableItem))]
     public static class PanelCooking_RarityLabelPatch
     {
         static UILabel? rarityLabel;
 
-        static void Postfix(Panel_Cooking __instance)
+        static void Postfix(Panel_Cooking __instance, ref CookableItem __result)
         {
             if (__instance.m_Label_CookedItemName == null) return;
 
-            string itemName = __instance.m_Label_CookedItemName.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            if (__result == null || __result.m_GearItem == null)
+            {
+                if (rarityLabel != null)
+                {
+                    rarityLabel.enabled = false;
+                }
+                return;
+            }
+
+            string itemName = __result.m_GearItem.name;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -146,10 +157,11 @@ namespace ItemRarities
 
             rarityLabel.text = itemRarity.ToString();
             rarityLabel.color = rarityColor;
+            rarityLabel.enabled = true;
         }
     }
 
-    [HarmonyPatch(typeof(Panel_HUD), nameof(Panel_HUD.Update))] // Need to find an alternative method.
+    [HarmonyPatch(typeof(Panel_HUD), nameof(Panel_HUD.Update))] // Need to find an alternative method - and a way to get the GearItem for the rarity to change.
     public static class PanelHUD_RarityLabelPatch
     {
         static void Postfix(Panel_HUD __instance)
@@ -174,14 +186,17 @@ namespace ItemRarities
             Panel_HUD? actualHUDPanel = __instance.m_HUD.GetPanel();
             if (actualHUDPanel == null || actualHUDPanel.m_InspectMode_Title == null) return;
 
-            string itemName = actualHUDPanel.m_InspectMode_Title.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            GearItem? currentGearItem = __instance.m_Gear;
+            if (currentGearItem == null) return;
+
+            string itemName = currentGearItem.name;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
             {
                 rarityLabel = UnityEngine.Object.Instantiate(actualHUDPanel.m_InspectMode_Title);
-                rarityLabel.alignment = NGUIText.Alignment.Center;  // Center the text
+                rarityLabel.alignment = NGUIText.Alignment.Center;
 
                 rarityLabel.transform.SetParent(actualHUDPanel.m_InspectMode_Title.transform.parent, false);
                 rarityLabel.transform.localPosition = new Vector3(actualHUDPanel.m_InspectMode_Title.transform.localPosition.x - 366,
@@ -196,7 +211,8 @@ namespace ItemRarities
         }
     }
 
-    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.UpdateDisplayText))]
+    // Need to find a way to get the GearItem name while keeping the same method.
+    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.UpdateDisplayText))] 
     public static class PanelActionsRadial_RarityLabelPatch
     {
         static UILabel? rarityLabel;
@@ -223,8 +239,8 @@ namespace ItemRarities
         {
             if (__instance.m_SegmentLabel == null) return;
 
-            string itemName = __instance.m_SegmentLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            string itemName = __instance.m_SegmentLabel.name;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (excludedNames.Contains(itemName))
@@ -263,17 +279,17 @@ namespace ItemRarities
         }
     }
 
-    [HarmonyPatch(typeof(Panel_Milling), nameof(Panel_Milling.Update))] // Need to find an alternative method.
+    [HarmonyPatch(typeof(Panel_Milling), nameof(Panel_Milling.GetSelected))]
     public static class PanelMilling_RarityLabelPatch
     {
         static UILabel? rarityLabel;
 
-        static void Postfix(Panel_Milling __instance)
+        static void Postfix(Panel_Milling __instance, ref GearItem __result)
         {
             if (__instance.m_NameLabel == null) return;
 
-            string itemName = __instance.m_NameLabel.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+            string itemName = __result.name;
+            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
@@ -310,7 +326,7 @@ namespace ItemRarities
                 if (__instance.m_Label == null) return;
 
                 string itemName = __instance.m_Label.text;
-                Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALIDRARITY;
+                Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
                 Color rarityColor = GetColorForRarity(itemRarity);
 
                 if (excludedNames.Contains(itemName))

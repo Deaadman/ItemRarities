@@ -26,6 +26,18 @@ namespace ItemRarities
                 }
             }
         }
+        public static Rarity GetRarity(string itemName)
+        {
+            if (itemName.StartsWith("GEAR_"))
+            {
+                if (gearRarities.ContainsKey(itemName))
+                {
+                    return gearRarities[itemName];
+                }
+            }
+
+            return Rarity.INVALID;
+        }
 
         public static Color GetColorForRarity(Rarity rarity)
         {
@@ -45,7 +57,7 @@ namespace ItemRarities
                     return ColorUtility.TryParseHtmlString("#edc643", out Color mythicColor) ? mythicColor : Color.yellow;
                 case Rarity.Story:
                     return ColorUtility.TryParseHtmlString("#47bcb3", out Color storyColor) ? storyColor : Color.cyan;
-                case Rarity.INVALIDRARITY: return Color.red;
+                case Rarity.INVALID: return Color.red;
                 case Rarity.Default: return Color.white;
                 default: return Color.white;
             }

@@ -5,7 +5,7 @@
 ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg) ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg)
 [![](https://img.shields.io/github/v/release/Deaadman/ItemRarities)](https://github.com/Deaadman/ItemRarities/releases/latest)
 
-Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [The Long Dark](https://www.hinterlandgames.com/the-long-dark/), without impacting the core gameplay.
+Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [**The Long Dark**](https://www.hinterlandgames.com/the-long-dark/), without impacting the core gameplay.
 
 For further support, questions, feedback, and downloadable pre-releases, join my [**discord server**](https://discord.gg/ZmMNzUzV6A).
 
@@ -30,13 +30,13 @@ For insights about existing updates, visit the [**Changelog**](CHANGELOG.md).
 ## Compatibility
 **Tested and Compatible with (as of 06-September-2023):**  
 
-- **The Long Dark:** [Version 2.22](https://store.steampowered.com/news/app/305620?updates=true) 
-- **MelonLoader:** [Version 0.6.1](https://github.com/LavaGang/MelonLoader/blob/master/CHANGELOG.md)
+- **The Long Dark:** [**Version 2.22**](https://store.steampowered.com/news/app/305620?updates=true) 
+- **MelonLoader:** [**Version 0.6.1**](https://github.com/LavaGang/MelonLoader/blob/master/CHANGELOG.md)
 
 >**Disclaimer:** This modification may not be compatible with older versions of The Long Dark, MelonLoader or other modifications, using it with incompatible versions or incompatible modifications may result in crashes, errors and unexpected behaviours.
 
 ## Known Issues
-Any issues for this modification will be made known here. Report issues either through my [discord server](https://discord.gg/ZmMNzUzV6A) or the [issues](https://github.com/Deaadman/ItemRarities/issues) tab within this github repository.
+Any issues for this modification will be made known here. Report issues either through my [**discord server**](https://discord.gg/ZmMNzUzV6A) or the [**issues**](https://github.com/Deaadman/ItemRarities/issues) tab within this github repository.
 
 ## License
 This modification is released under the **MIT License.**

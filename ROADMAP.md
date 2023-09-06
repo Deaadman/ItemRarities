@@ -20,7 +20,7 @@ Planned content which doesn't have a set release version or date.
  - Create custom UILabel, instead of duplicating existing ones.
 	 - This should allow much easier implementation.
 	 - May eliminate any incompatibilities.
- - Ability to filter by rarity.
+  - Ability to filter by rarity.
 
 ## Concept Ideas:
 

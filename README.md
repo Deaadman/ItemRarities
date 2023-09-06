@@ -9,7 +9,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 
 For further support, questions, or feedback, please join my [discord server](https://discord.gg/ZmMNzUzV6A).
 
-For insights into upcoming updates, visit the [**Roadmap**](ROADMAP.md).
+For insights about upcoming updates, visit the [**Roadmap**](ROADMAP.md).
 
 For insights about existing updates, visit the [**Changelog**](CHANGELOG.md).
 

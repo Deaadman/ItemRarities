@@ -21,8 +21,8 @@ For insights about existing updates, visit the [**Changelog**](CHANGELOG.md).
 - **No Dependencies Required**: This modification works alone without anything else.
 
 ## Installation
-1. [Download](https://github.com/LavaGang/MelonLoader/releases/latest) the latest version of MelonLoader.
-2. [Download](https://github.com/Deaadman/ItemRarities/releases/latest) the latest version of this modification.
+1. [**Download**](https://github.com/LavaGang/MelonLoader/releases/latest) the latest version of MelonLoader.
+2. [**Download**](https://github.com/Deaadman/ItemRarities/releases/latest) the latest version of this modification.
 3. Navigate to the game's mod directory: `[Path to The Long Dark Installation]\mods`.
 4. Copy the `ItemRarities.dll` from your `Downloads` folder and paste it into the `mods` directory.
 5. Launch the game. The mod should be active.

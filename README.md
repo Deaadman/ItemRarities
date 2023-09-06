@@ -1,6 +1,8 @@
 # Item Rarities
 
-![Screenshot](Images/placeholderiflerarity.jpg)
+![Animated GIF](https://gifyu.com/image/SgOba)
+
+>**Disclaimer:** This isn't an accurate representation of the actual rarity values, this is simply a brief showcase.
 
 ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg) ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg)
 [![](https://img.shields.io/github/v/release/Deaadman/ItemRarities)](https://github.com/Deaadman/ItemRarities/releases/latest)

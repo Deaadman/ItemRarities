@@ -7,7 +7,7 @@
 
 Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [The Long Dark](https://www.hinterlandgames.com/the-long-dark/), without impacting the core gameplay.
 
-For further support, questions, or feedback, please join my [discord server](https://discord.gg/ZmMNzUzV6A).
+For further support, questions, feedback, and downloadable pre-releases, join my [**discord server**](https://discord.gg/ZmMNzUzV6A).
 
 For insights about upcoming updates, visit the [**Roadmap**](ROADMAP.md).
 

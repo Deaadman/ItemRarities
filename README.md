@@ -1,6 +1,6 @@
 # Item Rarities
 
-![Animated GIF](https://gifyu.com/image/SgOba)
+![Animated GIF](https://s11.gifyu.com/images/SgOba.gif)
 
 >**Disclaimer:** This isn't an accurate representation of the actual rarity values, this is simply a brief showcase.
 

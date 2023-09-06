@@ -1,6 +1,6 @@
 # Item Rarities
 
-![Game Logo](path_to_your_logo.png) <!-- Replace with a logo or image for your mod -->
+![Screenshot](Images/placeholderiflerarity.jpg)
 
 ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg) ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg)
 [![](https://img.shields.io/github/v/release/Deaadman/ItemRarities)](https://github.com/Deaadman/ItemRarities/releases/latest)

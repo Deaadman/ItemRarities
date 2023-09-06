@@ -212,34 +212,36 @@ namespace ItemRarities
     }
 
     // Need to find a way to get the GearItem name while keeping the same method.
-    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.UpdateDisplayText))] 
+    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.UpdateStackStatus))] // This is now somewhat working, bugs such as label not disappearing and not updating when hovering over certain items like 'Spray Paint' aren't updating the rarity.
     public static class PanelActionsRadial_RarityLabelPatch
     {
         static UILabel? rarityLabel;
 
         private static readonly HashSet<string> excludedNames = new HashSet<string>
-            {
-                "NAVIGATION",
-                "CAMPCRAFT",
-                "FIRST AID",
-                "DRINK",
-                "LIGHT SOURCES",
-                "FOOD",
-                "WEAPONS",
-                "DROP DECOY",
-                "OPEN MAP",
-                "ROCK CACHE",
-                "STATUS",
-                "FIRE",
-                "PASS TIME",
-                "ICE FISHING HOLE",
-                "SNOW SHELTER"
-            };
-        static void Postfix(Panel_ActionsRadial __instance)
         {
+            "NAVIGATION",
+            "CAMPCRAFT",
+            "FIRST AID",
+            "DRINK",
+            "LIGHT SOURCES",
+            "FOOD",
+            "WEAPONS",
+            "DROP DECOY",
+            "OPEN MAP",
+            "ROCK CACHE",
+            "STATUS",
+            "FIRE",
+            "PASS TIME",
+            "ICE FISHING HOLE",
+            "SNOW SHELTER"
+        };
+        static void Postfix(Panel_ActionsRadial __instance, GearItem gi)
+        {
+            Logger.LogError("when is this being called?");
+
             if (__instance.m_SegmentLabel == null) return;
 
-            string itemName = __instance.m_SegmentLabel.name;
+            string itemName = gi.name;
             Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 

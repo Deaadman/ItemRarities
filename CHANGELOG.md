@@ -14,7 +14,6 @@ If you want to see upcoming features, please refer to the [**Roadmap**]().
 ## v1.0.0-rc1:
 
 > Released on the **??th of September 2023**.
-> Downloadable [**Here**](https://discord.gg/ru5cVuK4aE).
 
 ### Added
 - Added the ability to add items through their `GEAR_` name, such as `GEAR_Rifle` and `GEAR_Jeans`.
@@ -33,7 +32,6 @@ If you want to see upcoming features, please refer to the [**Roadmap**]().
 ## v1.0.0-rc0:
 
 > Released on the **5th of September 2023**.
-> Downloadable [**Here**](https://discord.gg/ru5cVuK4aE).
 
 ### Added
 - Initial commit.

@@ -1,6 +1,6 @@
 # Roadmap
 
-Welcome to the roadmap for this modification. This documents provides a detailed insights as to the possible upcoming additions and features within this modification.
+Welcome to the roadmap for this modification. This document provides a detailed insights as to the possible upcoming additions and features within this modification.
 
 For what has currently been updated, please refer to the [**Changelog**](CHANGELOG.md).
 

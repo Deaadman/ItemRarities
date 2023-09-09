@@ -9,13 +9,14 @@
 
 Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [**The Long Dark**](https://www.hinterlandgames.com/the-long-dark/), without impacting the core gameplay.
 
-For further support, questions, feedback, progress updates, and downloadable pre-releases, join my [**discord server**](https://discord.gg/ZmMNzUzV6A).
+>**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
 
-For insights about upcoming updates, visit the [**Roadmap**](ROADMAP.md).
+## Links
+To see how item rarities are determined, visit [**Rarity Critera**](CRITERA.md).
+To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 
 For insights about existing updates, visit the [**Changelog**](CHANGELOG.md).
-
->**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
+For insights about upcoming updates, visit the [**Roadmap**](ROADMAP.md).
 
 ## Features
 - **Rarity Classification:** Each item now has a distinct visual indicator which represents its rarity.

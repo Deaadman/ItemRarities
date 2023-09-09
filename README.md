@@ -12,7 +12,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 >**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
 
 ## Links
-To see how item rarities are determined, visit [**Rarity Critera**](CRITERA.md).
+To see how item rarities are determined, visit the [**Rarity Critera**](CRITERA.md).
 
 To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 
@@ -41,7 +41,7 @@ For insights about upcoming updates, visit the [**Roadmap**](ROADMAP.md).
 >**Disclaimer:** This modification may not be compatible with older versions of The Long Dark, MelonLoader or other modifications, using it with incompatible versions or incompatible modifications may result in crashes, errors and unexpected behaviours.
 
 ## Known Issues
-Any issues for this modification will be made known here. Report issues either through my [**discord server**](https://discord.gg/ZmMNzUzV6A) or the [**issues**](https://github.com/Deaadman/ItemRarities/issues) tab within this github repository.
+Any issues for this modification will be made known here. Please report issues either through my the TLD Modding [**discord server**](https://discord.gg/2mnXAZfGXQ) or the [**issues**](https://github.com/Deaadman/ItemRarities/issues) tab within this github repository.
 
 ## License
 This modification is released under the **MIT License.**

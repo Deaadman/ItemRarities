@@ -8,4 +8,4 @@ For extensive information regarding this modification, visit the [**Release**](h
 
 Since this is the development branch, visit the [**Roadmap**](https://github.com/Deaadman/ItemRarities/blob/release/ROADMAP.md) to see what is currently in development.
 
-To see visual progress and insights as to what specifically is being worked on, join my [**discord server**](https://discord.gg/ZmMNzUzV6A) and head over to the `#progress` channel within the `Item Rarities` category.
+This branch provides up-to-date progress and insights as to what specifically is being worked on at the moment.

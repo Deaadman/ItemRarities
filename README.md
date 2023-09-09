@@ -13,9 +13,11 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 
 ## Links
 To see how item rarities are determined, visit [**Rarity Critera**](CRITERA.md).
+
 To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 
 For insights about existing updates, visit the [**Changelog**](CHANGELOG.md).
+
 For insights about upcoming updates, visit the [**Roadmap**](ROADMAP.md).
 
 ## Features

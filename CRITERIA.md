@@ -10,11 +10,11 @@ To see the list of items and their rarities, please refer to the [**Item Raritie
 ## Criteria Outline
 
 The rarity of an item is determined based on the following criteria:
-1. [Spawn Frequency](#1-spawn-frequency)
-2. [Functionality](#2-functionality)
-3. [Crafting](#3-crafting)
-4. [Lore Significance](#4-lore-significance)
-5. [Durability](#5-durability)
+1. [**Spawn Frequency**](#1-spawn-frequency)
+2. [**Functionality**](#2-functionality)
+3. [**Crafting**](#3-crafting)
+4. [**Lore Significance**](#4-lore-significance)
+5. [**Durability**](#5-durability)
 
 ### 1. Spawn Frequency
 

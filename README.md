@@ -12,7 +12,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 >**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
 
 ## Links
-To see how item rarities are determined, visit the [**Rarity Criteria**](CRITERIA.md).
+To see how item rarities are determined, visit the [**Item Rarity Criteria**](CRITERIA.md).
 
 To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 

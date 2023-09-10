@@ -1,4 +1,5 @@
 ﻿using Il2CppTLD.Cooking;
+using Il2CppTLD.Gear;
 using static ItemRarities.Main;
 
 namespace ItemRarities
@@ -34,7 +35,6 @@ namespace ItemRarities
     public static class PanelInventoryExamine_RarityLabelPatch
     {
         static UILabel? rarityLabel;
-
         static void Postfix(Panel_Inventory_Examine __instance)
         {
             if (__instance.m_Item_Label == null) return;
@@ -64,7 +64,6 @@ namespace ItemRarities
     public static class PanelClothing_RarityLabelPatch
     {
         static UILabel? clothingRarityLabel;
-
         static void Postfix(Panel_Clothing __instance, ref GearItem __result)
         {
             if (__instance.m_ItemDescriptionPage == null || __instance.m_ItemDescriptionPage.m_ItemNameLabel == null) return;
@@ -90,8 +89,7 @@ namespace ItemRarities
         }
     }
 
-    // Need to find an alternative method - and a way to get the GearItem for the rarity to change. RefreshSelectedBlueprint is a possibly candidate but only calls when a a blueprint is selected so its blank to begin with.
-    [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Update))] 
+    [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.RefreshSelectedBlueprint))]
     public static class PanelCrafting_RarityLabelPatch
     {
         static UILabel? rarityLabel;
@@ -100,19 +98,19 @@ namespace ItemRarities
         {
             if (__instance.m_SelectedName == null) return;
 
-            string itemName = __instance.m_SelectedName.text;
+            int selectedIndex = __instance.m_CurrentBlueprintIndex;
+            string itemName = __instance.m_FilteredBlueprints[selectedIndex]?.m_CraftedResult?.name ?? "Unknown";
+
             Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
             Color rarityColor = GetColorForRarity(itemRarity);
 
             if (rarityLabel == null)
             {
                 rarityLabel = UnityEngine.Object.Instantiate(__instance.m_SelectedName);
-
                 rarityLabel.transform.SetParent(__instance.m_SelectedName.transform.parent, false);
                 rarityLabel.transform.localPosition = new Vector3(__instance.m_SelectedName.transform.localPosition.x,
                                                                   __instance.m_SelectedName.transform.localPosition.y - -25,
                                                                   __instance.m_SelectedName.transform.localPosition.z);
-
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
@@ -125,7 +123,6 @@ namespace ItemRarities
     public static class PanelCooking_RarityLabelPatch
     {
         static UILabel? rarityLabel;
-
         static void Postfix(Panel_Cooking __instance, ref CookableItem __result)
         {
             if (__instance.m_Label_CookedItemName == null) return;
@@ -161,7 +158,9 @@ namespace ItemRarities
         }
     }
 
-    [HarmonyPatch(typeof(Panel_HUD), nameof(Panel_HUD.Update))] // Need to find an alternative method - and a way to get the GearItem for the rarity to change.
+    // Commented out because its not as visually altering as these other methods.
+    // Need to find an alternative method - and a way to get the GearItem for the rarity to change.
+    /* [HarmonyPatch(typeof(Panel_HUD), nameof(Panel_HUD.Update))]
     public static class PanelHUD_RarityLabelPatch
     {
         static void Postfix(Panel_HUD __instance)
@@ -174,13 +173,12 @@ namespace ItemRarities
 
             __instance.m_Label_ObjectName.color = rarityColor;
         }
-    }
+    } */
 
     [HarmonyPatch(typeof(PlayerManager), nameof(PlayerManager.InitLabelsForGear))]
     public static class PlayerManager_RarityLabelPatch
     {
         static UILabel? rarityLabel;
-
         static void Postfix(PlayerManager __instance)
         {
             Panel_HUD? actualHUDPanel = __instance.m_HUD.GetPanel();
@@ -285,7 +283,6 @@ namespace ItemRarities
     public static class PanelMilling_RarityLabelPatch
     {
         static UILabel? rarityLabel;
-
         static void Postfix(Panel_Milling __instance, ref GearItem __result)
         {
             if (__instance.m_NameLabel == null) return;
@@ -313,7 +310,6 @@ namespace ItemRarities
 }
 
 // Possible Harmony Patch which can be used in the future?
-
 /* [HarmonyPatch(typeof(Panel_GearSelect), nameof(Panel_GearSelect.Update))] // Need to find an alternative method. Slightly broken, all labels disapear after No Tools is selected
         public static class Panel_GearSelectAddRarityLabelPatch
         {

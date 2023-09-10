@@ -16,16 +16,17 @@ namespace ItemRarities
             {
                 foreach (var rarityGroup in rarityData)
                 {
-               
+
                     Rarity rarity = (Rarity)Enum.Parse(typeof(Rarity), rarityGroup.Key);
                     foreach (string item in rarityGroup.Value)
                     {
                         gearRarities[item] = rarity;
                     }
-                    
+
                 }
             }
         }
+
         public static Rarity GetRarity(string itemName)
         {
             if (itemName.StartsWith("GEAR_"))

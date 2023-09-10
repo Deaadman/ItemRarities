@@ -1,5 +1,4 @@
 ﻿using Il2CppTLD.Cooking;
-using Il2CppTLD.Gear;
 using static ItemRarities.Main;
 
 namespace ItemRarities
@@ -158,23 +157,6 @@ namespace ItemRarities
         }
     }
 
-    // Commented out because its not as visually altering as these other methods.
-    // Need to find an alternative method - and a way to get the GearItem for the rarity to change.
-    /* [HarmonyPatch(typeof(Panel_HUD), nameof(Panel_HUD.Update))]
-    public static class PanelHUD_RarityLabelPatch
-    {
-        static void Postfix(Panel_HUD __instance)
-        {
-            if (__instance.m_Label_ObjectName == null) return;
-
-            string itemName = __instance.m_Label_ObjectName.text;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.Default;
-            Color rarityColor = GetColorForRarity(itemRarity);
-
-            __instance.m_Label_ObjectName.color = rarityColor;
-        }
-    } */
-
     [HarmonyPatch(typeof(PlayerManager), nameof(PlayerManager.InitLabelsForGear))]
     public static class PlayerManager_RarityLabelPatch
     {
@@ -209,14 +191,14 @@ namespace ItemRarities
         }
     }
 
-    // Need to find a way to get the GearItem name while keeping the same method.
-    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.UpdateStackStatus))] // This is now somewhat working, bugs such as label not disappearing and not updating when hovering over certain items like 'Spray Paint' aren't updating the rarity.
+    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.GetActionText))]
     public static class PanelActionsRadial_RarityLabelPatch
     {
-        static UILabel? rarityLabel;
+        internal static UILabel? rarityLabel;
 
         private static readonly HashSet<string> excludedNames = new HashSet<string>
         {
+            "PACKSETTINGS_Pilgrim",
             "NAVIGATION",
             "CAMPCRAFT",
             "FIRST AID",
@@ -233,33 +215,11 @@ namespace ItemRarities
             "ICE FISHING HOLE",
             "SNOW SHELTER"
         };
-        static void Postfix(Panel_ActionsRadial __instance, GearItem gi)
+        static void Postfix(Panel_ActionsRadial __instance, RadialMenuArm arm)
         {
             Logger.LogError("when is this being called?");
 
             if (__instance.m_SegmentLabel == null) return;
-
-            string itemName = gi.name;
-            Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
-            Color rarityColor = GetColorForRarity(itemRarity);
-
-            if (excludedNames.Contains(itemName))
-            {
-                if (rarityLabel != null)
-                {
-                    rarityLabel.gameObject.SetActive(false);
-                }
-                return;
-            }
-
-            if (string.IsNullOrEmpty(itemName))
-            {
-                if (rarityLabel != null)
-                {
-                    rarityLabel.gameObject.SetActive(false);
-                }
-                return;
-            }
 
             if (rarityLabel == null)
             {
@@ -273,9 +233,52 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
-            rarityLabel.color = rarityColor;
-            rarityLabel.gameObject.SetActive(true);
+            if (arm != null && arm.m_GearItem != null)
+            {
+                string itemName = arm.m_GearItem.name;
+                Logger.Log("Gear item name: " + itemName);
+
+                Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.INVALID;
+                Color rarityColor = GetColorForRarity(itemRarity);
+
+                if (!excludedNames.Contains(itemName) && !string.IsNullOrEmpty(itemName))
+                {
+                    rarityLabel.text = itemRarity.ToString();
+                    rarityLabel.color = rarityColor;
+                    rarityLabel.gameObject.SetActive(true);
+                    return;
+                }
+            }
+
+            if (rarityLabel != null)
+            {
+                rarityLabel.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.UpdateDisplayText))]
+    public static class PanelActionsRadial_UpdateDisplayText_Patch
+    {
+        public static void Postfix(Panel_ActionsRadial __instance)
+        {
+            UILabel? label = PanelActionsRadial_RarityLabelPatch.rarityLabel;
+
+            bool isHoveredOverAnyItem = false;
+
+            foreach (var arm in __instance.m_RadialArms)
+            {
+                if (arm != null && arm.IsHoveredOver() && !arm.IsEmpty())
+                {
+                    isHoveredOverAnyItem = true;
+                    break;
+                }
+            }
+
+            if (label != null && !isHoveredOverAnyItem)
+            {
+                label.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -309,7 +312,7 @@ namespace ItemRarities
     }
 }
 
-// Possible Harmony Patch which can be used in the future?
+// Possible Harmony Patches which can be used in the future?
 /* [HarmonyPatch(typeof(Panel_GearSelect), nameof(Panel_GearSelect.Update))] // Need to find an alternative method. Slightly broken, all labels disapear after No Tools is selected
         public static class Panel_GearSelectAddRarityLabelPatch
         {
@@ -361,3 +364,20 @@ namespace ItemRarities
                 rarityLabel.color = rarityColor;
             }
         } */
+
+// Commented out because its not as visually altering as these other methods.
+// Need to find an alternative method - and a way to get the GearItem for the rarity to change.
+/* [HarmonyPatch(typeof(Panel_HUD), nameof(Panel_HUD.Update))]
+public static class PanelHUD_RarityLabelPatch
+{
+    static void Postfix(Panel_HUD __instance)
+    {
+        if (__instance.m_Label_ObjectName == null) return;
+
+        string itemName = __instance.m_Label_ObjectName.text;
+        Rarity itemRarity = gearRarities.ContainsKey(itemName) ? gearRarities[itemName] : Rarity.Default;
+        Color rarityColor = GetColorForRarity(itemRarity);
+
+        __instance.m_Label_ObjectName.color = rarityColor;
+    }
+} */

@@ -19,74 +19,74 @@ The rarity of an item is determined based on the following criteria:
 ### 1. Spawn Frequency
 
 - **Common**
-  - (details on what spawn frequencies classify it as common)
+  - Items like sticks, stones, and reclaimed wood, which are found almost everywhere in the game.
 - **Uncommon**
-  - (details on what spawn frequencies classify it as uncommon)
+  - Items like hatchets, lanterns, or mid-tier clothing can be found in specific locations but not as regularly as common items.
 - **Rare**
-  - (details on what spawn frequencies classify it as rare)
+  - High-quality tools, fire strikers, or high-tier clothing items are found less frequently and in specific locations.
 - **Epic**
-  - (details on what spawn frequencies classify it as epic)
+  - Items like rifles or revolvers, which are found in very specific locations and are hard to come by.
 - **Legendary**
-  - (details on what spawn frequencies classify it as legendary)
+  - Crafted clothing items (Bearskin coat, Moose-hide satchel) or special items tied to game updates or events.
 - **Mythic**
-  - (details on what spawn frequencies classify it as mythic)
+  - Not applicable in the current version of the game but could refer to potential future additions of unique, one-of-a-kind items.
 
 ### 2. Functionality
 
 - **Common**
-  - (details on functionalities that classify it as common)
+  - Items like basic clothing (jeans, basic gloves), which provide minimal protection from the cold.
 - **Uncommon**
-  - (details on functionalities that classify it as uncommon)
+  - Items like the can opener, which can be useful but are not absolutely necessary for survival.
 - **Rare**
-  - (details on functionalities that classify it as rare)
+  - High-quality tools and clothing items, like the fire striker, which provide a substantial benefit to the player.
 - **Epic**
-  - (details on functionalities that classify it as epic)
+  - Items like firearms (rifle or revolver) which provide a significant edge in survival, particularly against wildlife threats.
 - **Legendary**
-  - (details on functionalities that classify it as legendary)
+  - Items crafted from rare materials (Bearskin coat, Moose-hide satchel) which offer exceptional benefits.
 - **Mythic**
-  - (details on functionalities that classify it as mythic)
+  - Not applicable in the current version of the game but could potentially refer to unique future additions with exceptional functionalities.
 
 ### 3. Crafting
 
 - **Common**
-  - (details on crafting aspects that classify it as common)
+  - Crafting items like tinder plugs or simple bandages from basic materials.
 - **Uncommon**
-  - (details on crafting aspects that classify it as uncommon)
+  - Slightly more complex crafting, such as creating torches or basic snares.
 - **Rare**
-  - (details on crafting aspects that classify it as rare)
+  - Crafting of more advanced items like the survival bow or arrowheads, which require more rare materials.
 - **Epic**
-  - (details on crafting aspects that classify it as epic)
+  - Crafting high-quality items, like ammunition or bear skin bedroll, which require rare materials and substantial effort.
 - **Legendary**
-  - (details on crafting aspects that classify it as legendary)
+  - Crafting exceptional items like a Bearskin coat or Moose-hide satchel which require materials from rare animals.
 - **Mythic**
-  - (details on crafting aspects that classify it as mythic)
+  - Not applicable in the current version of the game but could refer to potential future crafting recipes involving unique materials and items.
 
 ### 4. Lore Significance
 
 - **Common**
-  - (details on lore that classify it as common)
+  - Regular items like reclaimed wood or stones, which are just part of the game world without a backstory.
 - **Uncommon**
-  - (details on lore that classify it as uncommon)
+  - Items that might have a minor significance in the game's narrative or found in letters and notes, such as specific types of clothing or tools.
 - **Rare**
-  - (details on lore that classify it as rare)
+  - Items that are directly connected to specific characters or events in the storyline, like personal items of notable characters.
 - **Epic**
-  - (details on lore that classify it as epic)
+  - Items deeply tied to the storyline or background narratives of the game, like special items found at the end of quest lines.
 - **Legendary**
-  - (details on lore that classify it as legendary)
+  - Items that have a rich backstory, such as those tied to the main character's personal story or significant events in the game's world.
 - **Mythic**
-  - (details on lore that classify it as mythic)
+  - Potential future items that are deeply ingrained in new lore elements or significant game updates, offering a deep connection to the unfolding narrative.
 
 ### 5. Durability
 
 - **Common**
-  - (details on durability levels that classify it as common)
+  - Items that wear out quickly, like basic clothing items (jeans, basic gloves), which need regular repair or replacement.
 - **Uncommon**
-  - (details on durability levels that classify it as uncommon)
+  - Items with moderate durability, like hatchets or lanterns, requiring maintenance but not too frequently.
 - **Rare**
-  - (details on durability levels that classify it as rare)
+  - Durable items like fire strikers or high-tier clothing, which offer longevity and don't require frequent maintenance.
 - **Epic**
-  - (details on durability levels that classify it as epic)
+  - Exceptionally durable items, such as firearms or crafted tools, which require less frequent maintenance.
 - **Legendary**
-  - (details on durability levels that classify it as legendary)
+  - Extremely durable items crafted from rare materials (like the Bearskin coat), which can endure a lot of wear and tear.
 - **Mythic**
-  - (details on durability levels that classify it as mythic)
+  - Not applicable in the current version of the game but could potentially represent future items with unique durability properties.

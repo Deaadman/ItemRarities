@@ -35,7 +35,7 @@ No patch notes as of currently.
 ### Removed / Deprecated
 - Items are no longer found using strings of text, such as `Hunting Rifle` and `HUNTING RIFLE`.
 
-## Fixed
+### Fixed
 - Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly hide and display the rarity label.
 
 ---

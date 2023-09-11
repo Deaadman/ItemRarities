@@ -9,7 +9,7 @@ namespace ItemRarities
         [Obsolete]
         public override void OnApplicationStart()
         {
-            string json = File.ReadAllText("D:/The Long Dark/Mods/ItemRarities/VisualStudio/Rarities/GearRarities.json");
+            string json = GetEmbeddedResource("ItemRarities.Rarities.GearRarities.json");
             var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json);
 
             if (rarityData != null)
@@ -25,6 +25,27 @@ namespace ItemRarities
 
                 }
             }
+        }
+
+        private static string GetEmbeddedResource(string resourceName)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            string result;
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream == null)
+                {
+                    return null;
+                }
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    result = reader.ReadToEnd();
+                }
+            }
+
+            return result;
         }
 
         public static Rarity GetRarity(string itemName)

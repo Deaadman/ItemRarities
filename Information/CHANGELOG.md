@@ -33,6 +33,7 @@ No patch notes as of currently.
 
 ### Changed
 - Changed some of the methods from `Update` for improved performance.
+- The `.json` file is now embedded into the `.dll`.
 
 ### Removed / Deprecated
 - Items are no longer found using strings of text, such as `Hunting Rifle` and `HUNTING RIFLE`.
@@ -41,3 +42,7 @@ No patch notes as of currently.
 
 ### Fixed
 - Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label.
+- Fixed the path to the `.json` file being an absolute fixed path, meaning you could only access it if you had the `.json` file on your computer in that exact location.
+
+### Contributors
+- [**Digitalzombie**](https://github.com/DigitalzombieTLD/) for helping notice the `.json` issue.

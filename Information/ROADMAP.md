@@ -22,6 +22,7 @@ Planned content which doesn't have a set release version or date.
 	 - May eliminate any incompatibilities.
   - Ability to filter by rarity.
   - Add animations once a higher rarity is found?
+  - Hide the rarity label if no rarity is found
 
 ## Concept Ideas:
 

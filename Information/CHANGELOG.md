@@ -7,8 +7,7 @@ If you want to see upcoming features, please refer to the [**Roadmap**](ROADMAP.
 | Versions: |
 | - |
 | [v1.0.0](#v100) |
-| [v1.0.0-rc1](#v100-rc1) |
-| [v1.0.0-rc0](#v100-rc0) |
+| [v1.0.0-rc0](#v100-rc.0) |
 
 ---
 
@@ -20,10 +19,13 @@ No patch notes as of currently.
 
 ---
 
-## v1.0.0-rc1:
+## v1.0.0-rc.0:
+
+> Released on the **11th of September 2023**.
 
 ### Added
 - Added the ability to add items through their `GEAR_` name, such as `GEAR_Rifle` and `GEAR_Jeans`.
+- Added the first batch of `GEAR_` items to the `Rarities.json` file.
 
 ### Updated
 - Updated `Rarity.ERROR` to `Rarity.INVALIDRARITY` and then to `Rarity.INVALID`.
@@ -34,13 +36,8 @@ No patch notes as of currently.
 
 ### Removed / Deprecated
 - Items are no longer found using strings of text, such as `Hunting Rifle` and `HUNTING RIFLE`.
+- Removed all `Logger.Log()` console logs, which were used for debugging.
+- Commented out unused pieces of code. May be revisited in the future.
 
 ### Fixed
-- Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly hide and display the rarity label.
-
----
-
-## v1.0.0-rc0:
-
-### Added
-- Initial commit.
+- Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label.

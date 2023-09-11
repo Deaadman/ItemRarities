@@ -7,18 +7,18 @@
 ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg) ![](https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg)
 [![](https://img.shields.io/github/v/release/Deaadman/ItemRarities)](https://github.com/Deaadman/ItemRarities/releases/latest)
 
-Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [**The Long Dark**](https://www.hinterlandgames.com/the-long-dark/){:target="_blank"}, without impacting the core gameplay.
+Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [**The Long Dark**](https://www.hinterlandgames.com/the-long-dark/) target="_blank", without impacting the core gameplay.
 
 >**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
 
 ## Links
-To see the different item rarities, visit the [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/ITEMRARITIES.md){:target="_blank"}.
+To see the different item rarities, visit the [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/ITEMRARITIES.md) target="_blank".
 
 To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 
-For insights about existing updates, visit the [**Changelog**](https://github.com/Deaadman/ItemRarities/blob/release/Information/CHANGELOG.md){:target="_blank"}.
+For insights about existing updates, visit the [**Changelog**](https://github.com/Deaadman/ItemRarities/blob/release/Information/CHANGELOG.md) target="_blank".
 
-For insights about upcoming updates, visit the [**Roadmap**](https://github.com/Deaadman/ItemRarities/blob/release/Information/ROADMAP.md){:target="_blank"}.
+For insights about upcoming updates, visit the [**Roadmap**](https://github.com/Deaadman/ItemRarities/blob/release/Information/ROADMAP.md) target="_blank".
 
 ## Features
 - **Rarity Classification:** Each item now has a distinct visual indicator which represents its rarity.
@@ -26,8 +26,8 @@ For insights about upcoming updates, visit the [**Roadmap**](https://github.com/
 - **No Dependencies Required**: This modification works alone without anything else.
 
 ## Installation
-1. [**Download**](https://github.com/LavaGang/MelonLoader/releases/latest/download/MelonLoader.Installer.exe) the latest version of MelonLoader.
-2. [**Download**](https://github.com/Deaadman/ItemRarities/releases/latest/download/ItemRarities.dll) the latest version of this modification.
+1. [**Download**](https://github.com/LavaGang/MelonLoader/releases/latest/download/MelonLoader.Installer.exe) target="_blank" the latest version of MelonLoader.
+2. [**Download**](https://github.com/Deaadman/ItemRarities/releases/latest/download/ItemRarities.dll) target="_blank" the latest version of this modification.
 3. Navigate to the game's mod directory: `[Path to The Long Dark Installation]\mods`.
 4. Copy the `ItemRarities.dll` from your `Downloads` folder and paste it into the `mods` directory.
 5. Launch the game. The mod should be active.
@@ -35,13 +35,13 @@ For insights about upcoming updates, visit the [**Roadmap**](https://github.com/
 ## Compatibility
 **Tested and Compatible with (as of 06-September-2023):**  
 
-- **The Long Dark:** [**Version 2.22**](https://store.steampowered.com/news/app/305620?updates=true){:target="_blank"}
-- **MelonLoader:** [**Version 0.6.1**](https://github.com/LavaGang/MelonLoader/blob/master/CHANGELOG.md){:target="_blank"}
+- **The Long Dark:** [**Version 2.22**](https://store.steampowered.com/news/app/305620?updates=true) target="_blank"
+- **MelonLoader:** [**Version 0.6.1**](https://github.com/LavaGang/MelonLoader/blob/master/CHANGELOG.md) target="_blank"
 
 >**Disclaimer:** This modification may not be compatible with older versions of The Long Dark, MelonLoader or other modifications, using it with incompatible versions or incompatible modifications may result in crashes, errors and unexpected behaviours.
 
 ## Known Issues
-Any issues for this modification will be made known here. Please report issues either through the TLD Modding [**discord server**](https://discord.gg/2mnXAZfGXQ){:target="_blank"} or the [**issues**](https://github.com/Deaadman/ItemRarities/issues){:target="_blank"} tab within this github repository.
+Any issues for this modification will be made known here. Please report issues either through the TLD Modding [**discord server**](https://discord.gg/2mnXAZfGXQ) target="_blank" or the [**issues**](https://github.com/Deaadman/ItemRarities/issues) target="_blank" tab within this github repository.
 
 ## License
 This modification is released under the **MIT License.**

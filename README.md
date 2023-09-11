@@ -12,7 +12,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 >**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
 
 ## Links
-To see the different item rarities, visit the [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/ITEMRARITIES.md).
+To see the different item rarities, visit the [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/RARITIES.md).
 
 To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 

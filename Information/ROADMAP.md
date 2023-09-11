@@ -23,6 +23,7 @@ Planned content which doesn't have a set release version or date.
   - Ability to filter by rarity.
   - Add animations once a higher rarity is found?
   - Hide the rarity label if no rarity is found
+  - Cleanup, organise, and deleted unused files such as `Settings.cs`.
 
 ## Concept Ideas:
 

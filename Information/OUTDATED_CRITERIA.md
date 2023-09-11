@@ -1,3 +1,6 @@
+> **DISCLAIMER**: This is currently, archived and may be revisited in a future update. For up-to-date details, please visit [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/RARITIES.md).
+
+---
 
 # Item Rarity Criteria
 

@@ -17,10 +17,11 @@ This release focuses on preparing for the next major milestones or small fixes.
 
 Planned content which doesn't have a set release version or date.
 
- - Create custom UILabel, instead of duplicating existing ones.
+  - Create custom UILabel, instead of duplicating existing ones.
 	 - This should allow much easier implementation.
 	 - May eliminate any incompatibilities.
   - Ability to filter by rarity.
+  - Add animations once a higher rarity is found?
 
 ## Concept Ideas:
 

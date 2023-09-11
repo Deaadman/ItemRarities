@@ -217,8 +217,6 @@ namespace ItemRarities
         };
         static void Postfix(Panel_ActionsRadial __instance, RadialMenuArm arm)
         {
-            Logger.LogError("when is this being called?");
-
             if (__instance.m_SegmentLabel == null) return;
 
             if (rarityLabel == null)

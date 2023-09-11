@@ -65,3 +65,37 @@ namespace ItemRarities
         }
     }
 }
+
+// This code helps me understand the GEAR_ names with what Display Name for easier readability.
+/* public override void OnSceneWasInitialized(int buildIndex, string sceneName)
+{
+    ListGear();
+}
+
+private static void ListGear()
+{
+    SortedSet<string> sortedUniqueGear = new SortedSet<string>();
+    foreach (string gearName in ConsoleManager.m_SearchStringToGearNames.Values)
+    {
+        if (!gearName.StartsWith("GEAR_")) continue;
+        sortedUniqueGear.Add(gearName.Substring("GEAR_".Length));
+    }
+
+    // Specifying the path to the output file -- it outputs to the My Documents folder.
+    string outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "GearItems.txt");
+
+    foreach (string gearName in sortedUniqueGear)
+    {
+        // Using the GetGearDisplayName method to get the display name
+        string displayName = GearItem.GetGearDisplayName("GEAR_" + gearName);
+
+        // Constructing the log message with the desired format
+        string logMessage = "Gear Name: " + gearName + " \nDisplay Name: " + displayName + "\n---\n";
+
+        // Logging to console
+        Logger.Log(logMessage);
+
+        // Writing to file
+        File.AppendAllText(outputPath, logMessage + Environment.NewLine);
+    }
+} */

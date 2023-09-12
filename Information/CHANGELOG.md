@@ -33,6 +33,9 @@ No patch notes as of currently.
 ### Removed / Deprecated
 - Removed all `[Obsolete]` methods.
 - `OnApplicationStart` method is deprecated, switched to `OnInitializeMelon`.
+- Deleted `Utilities.cs` file.
+- Removed another pesky `Logger.Log()` console log.
+- Deleted `Settings` and `Settings.cs` folder and file.
 
 ### Fixed
 - Fixed the path to the `.json` file being an absolute fixed path, meaning you could only access it if you had the `.json` file on your computer in that exact location.

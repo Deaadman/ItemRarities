@@ -25,7 +25,30 @@ No patch notes as of currently.
 
 > **Upcoming Release...**
 
-No patch notes as of currently.
+### Added
+- Added `Logger.LogError();` logs all throughout the code, if something isn't working correctly.
+- Added a `GetColor()` method to reduce redundant code all in the `GetColorForRarity()` method.
+- Added `<summary>`'s before methods to provide information for its use.
+
+### Changed
+- Changed many explicit type declarations with `var`.
+- Changed `ContainsKey` to `TryGetValue` in the `GetRarity()` method, for a more efficient lookup in the dictionary.
+- Changed `Enum.Parse()` method to `Enum.TryParse()` for the ability to add error handling.
+- Simplified code throughout the `ItemRarities.cs` file.
+- Changed `GetColorForRarity()` method to `GetRarityColor()`.
+
+### Removed / Deprecated
+- Removed redundant `Logger.LogError();` logs in `OnInitializeMelon()` method.
+
+### Fixed
+- Fixed `Non-constant fields` warning by setting the dictionary to `public static readonly` from `public static`.
+- Fixed 3 `'new' expression can be simplified` warnings throughout the project.
+- Fixed `'using' statement can be simplified` warning under the `GetEmbeddedResource()` method.
+- Fixed `Use 'switch' expression` warning in the `GetColorForRarity()` method.
+- Fixed `Converting null literal or possible null value to non-nullable type` warning by adding a `?` in front of `Stream` - so it is now `Stream?`.
+- Fixed `Possible null reference return` warning by replacing `return null;` with `throw  new InvalidOperationException("Resource not found: " + resourceName);` which throws an exception instead.
+- Fixed 2 `Null check can be simplified` warnings throughout the project.
+- Fixed `Unboxing a possibly null value` warning by checking if `rarityObj` is null before unboxing it.
 
 ---
 
@@ -35,6 +58,9 @@ No patch notes as of currently.
 
 ### Added
 - Added `#region`'s and `//` comments within the harmony patches, for easier readability and identification.
+
+### Updated
+- Updated `GetEmbeddedResource()` method to use a more concise using statement for readability.
 
 ### Changed
 - The `.json` file is now embedded into the `.dll`.
@@ -77,4 +103,4 @@ No patch notes as of currently.
 - Commented out unused pieces of code. May be revisited in the future.
 
 ### Fixed
-- Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label. 
+- Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label.

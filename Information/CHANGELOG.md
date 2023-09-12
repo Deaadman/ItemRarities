@@ -25,7 +25,7 @@ No patch notes as of currently.
 > **Upcoming Release...**
 
 ### Added
-- Added `#region`'s within the harmony patches, for easier readability.
+- Added `#region`'s and `//` comments within the harmony patches, for easier readability and identification.
 
 ### Changed
 - The `.json` file is now embedded into the `.dll`.

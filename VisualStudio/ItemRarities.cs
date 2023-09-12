@@ -6,8 +6,7 @@ namespace ItemRarities
     {
         public static Dictionary<string, Rarity> gearRarities = new Dictionary<string, Rarity>(StringComparer.OrdinalIgnoreCase);
 
-        [Obsolete]
-        public override void OnApplicationStart()
+        public override void OnInitializeMelon()
         {
             string json = GetEmbeddedResource("ItemRarities.Rarities.GearRarities.json");
             var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json);

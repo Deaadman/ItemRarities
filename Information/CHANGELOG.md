@@ -7,6 +7,7 @@ If you want to see upcoming features, please refer to the [**Roadmap**](ROADMAP.
 | Versions: |
 | - |
 | [v1.0.0](#v100) |
+| [v1.0.0-rc.2](#v100-rc.2) |
 | [v1.0.0-rc.1](#v100-rc.1) |
 | [v1.0.0-rc.0](#v100-rc.0) |
 
@@ -20,9 +21,17 @@ No patch notes as of currently.
 
 ---
 
-## v1.0.0-rc.1:
+## v1.0.0-rc.2:
 
 > **Upcoming Release...**
+
+No patch notes as of currently.
+
+---
+
+## v1.0.0-rc.1:
+
+> Released on the **12th of September 2023**.
 
 ### Added
 - Added `#region`'s and `//` comments within the harmony patches, for easier readability and identification.

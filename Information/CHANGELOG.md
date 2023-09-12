@@ -27,10 +27,6 @@ No patch notes as of currently.
 ### Added
 - Added `#region`'s within the harmony patches, for easier readability.
 
-### Updated
-- Updated `Rarity.ERROR` to `Rarity.INVALIDRARITY` and then to `Rarity.INVALID`.
-- Updated the `itemRarities` dictionary to read a `.json` file for easier readability and editability.
-
 ### Changed
 - The `.json` file is now embedded into the `.dll`.
 

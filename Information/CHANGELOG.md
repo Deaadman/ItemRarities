@@ -29,6 +29,8 @@ No patch notes as of currently.
 - Added `Logger.LogError();` logs all throughout the code, if something isn't working correctly.
 - Added a `GetColor()` method to reduce redundant code all in the `GetColorForRarity()` method.
 - Added `<summary>`'s before methods to provide information for its use.
+- Added code in `ItemRaritiesPatches.cs` that may be used in the future to streamline how the `UILabel` is duplicated.
+- Added all `First Aid` items to the `Rarities.json` file.
 
 ### Changed
 - Changed many explicit type declarations with `var`.
@@ -39,6 +41,7 @@ No patch notes as of currently.
 
 ### Removed / Deprecated
 - Removed redundant `Logger.LogError();` logs in `OnInitializeMelon()` method.
+- Removed `Default` rarity type.
 
 ### Fixed
 - Fixed `Non-constant fields` warning by setting the dictionary to `public static readonly` from `public static`.
@@ -49,6 +52,7 @@ No patch notes as of currently.
 - Fixed `Possible null reference return` warning by replacing `return null;` with `throw  new InvalidOperationException("Resource not found: " + resourceName);` which throws an exception instead.
 - Fixed 2 `Null check can be simplified` warnings throughout the project.
 - Fixed `Unboxing a possibly null value` warning by checking if `rarityObj` is null before unboxing it.
+- Fixed `Uncommon` rarity type not being found.
 
 ---
 

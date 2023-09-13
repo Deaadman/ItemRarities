@@ -1,3 +1,4 @@
+
 # Changelog
 
 Welcome to the changelog for this modification. This document provides a detailed insight into the history of every update made to this project. This changelog keeps you informed about the latest additions, bug fixes and enhancements which each release.
@@ -31,6 +32,7 @@ No patch notes as of currently.
 - Added `<summary>`'s before methods to provide information for its use.
 - Added code in `ItemRaritiesPatches.cs` that may be used in the future to streamline how the `UILabel` is duplicated.
 - Added all `First Aid` items to the `Rarities.json` file.
+- Added all `Tool` items to the `Rarities.json` file.
 
 ### Changed
 - Changed many explicit type declarations with `var`.
@@ -38,10 +40,12 @@ No patch notes as of currently.
 - Changed `Enum.Parse()` method to `Enum.TryParse()` for the ability to add error handling.
 - Simplified code throughout the `ItemRarities.cs` file.
 - Changed `GetColorForRarity()` method to `GetRarityColor()`.
+- If an item doesn't have a rarity within the `.json` file, it now defaults to hiding the label.
 
 ### Removed / Deprecated
 - Removed redundant `Logger.LogError();` logs in `OnInitializeMelon()` method.
 - Removed `Default` rarity type.
+- Removed `Invalid` rarity type.
 
 ### Fixed
 - Fixed `Non-constant fields` warning by setting the dictionary to `public static readonly` from `public static`.
@@ -53,6 +57,9 @@ No patch notes as of currently.
 - Fixed 2 `Null check can be simplified` warnings throughout the project.
 - Fixed `Unboxing a possibly null value` warning by checking if `rarityObj` is null before unboxing it.
 - Fixed `Uncommon` rarity type not being found.
+
+### Acknowledgements
+- **RossBondReturns** - For their feedback on removing `INVALID` rarity, and to hide the `RarityLabel` if no `Rarity` is found for that item.
 
 ---
 

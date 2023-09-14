@@ -52,7 +52,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added all `First Aid` items to the `Rarities.json` file.
 - Added all `Tool` items to the `Rarities.json` file.
 - Added all `Material` items to the `Rarities.json` file.
-- Over 200 items have been added so far!
+- Added all `Fire Starting` items to the `Rarities.json` file.
+- Over 250 items have been added so far!
 
 ### Changed
 - Changed many explicit type declarations with `var`.

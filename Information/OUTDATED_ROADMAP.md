@@ -20,15 +20,7 @@ For what has currently been updated, please refer to the [**Changelog**](CHANGEL
 
 > **Note:** Planned content which doesn't have a set release version or date.
 
-  - Switch from a duplicated `UILabel` to a custom `UILabel`.
-	 - Will allow for easier implementation among each harmony patch.
-	 - Change parameters in one place, instead of each harmony patch.
-	 - May eliminate any incompatibilities.
-	 - May introduce an issue of getting the `GearItem`, to change the rarity label.
-  - Hide the rarity label if no rarity is found
-  - Allows developers to set rarities for items within their modifications?
-	 - Through an external `.json` shipped with the mod?
-	 - Or just support every modification in a future update. **(most likely option)**
+
 
 ---
 

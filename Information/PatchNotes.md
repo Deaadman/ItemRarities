@@ -44,6 +44,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added a `GetColor()` method to reduce redundant code all in the `GetColorForRarity()` method.
 - Added `<summary>`'s before methods to provide information for its use.
 - Added code in `ItemRaritiesPatches.cs` that may be used in the future to streamline how the `UILabel` is duplicated.
+- Added `None` rarity for the `GetRarity()` method if a gear item doesn't match a rarity.
 - Added all `First Aid` items to the `Rarities.json` file.
 - Added all `Tool` items to the `Rarities.json` file.
 - Added all `Material` items to the `Rarities.json` file.

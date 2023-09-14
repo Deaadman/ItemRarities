@@ -4,7 +4,7 @@ Rarities are arbitrary properties given to all items; while it does not impact g
 
 ## In-Game Rarities
 
-When no rarity value is specified for an item in the game, the item will default to 'INVALID' Rarity.
+When no rarity value is specified for an item in the game, the item will default to disabling the rarity label.
 
 | Colour | Name | Example |
 |----------|----------|----------|
@@ -18,5 +18,3 @@ When no rarity value is specified for an item in the game, the item will default
 |  |  |  |
 |  |  |  |
 | #47BCB3 | Story | Bear Spear |
-| #FF0000 | INVALID | Default Rarity |
-| #FFFFFF | Default | Unused |

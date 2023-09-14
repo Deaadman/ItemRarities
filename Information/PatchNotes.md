@@ -1,24 +1,37 @@
+# Patch Notes
 
-# Changelog
+Welcome to the patch notes for this modification. This document provides a detailed insight into the history of every update made to this project. These patch notes keep you informed about the latest additions, bug fixes and enhancements which each release. Along with current information, it also brings you insights as to upcoming possible ideas.
 
-Welcome to the changelog for this modification. This document provides a detailed insight into the history of every update made to this project. This changelog keeps you informed about the latest additions, bug fixes and enhancements which each release.
-
-If you want to see upcoming features, please refer to the [**Roadmap**](ROADMAP.md).
+So please note that the upcoming ideas provided within these patch notes isn't final and is subject to change and should not be interpreted as a guarantee of implementation -and production may be halted at any time due to reasons such as life, and loss of interest.
 
 | Versions: |
 | - |
-| [v1.0.0](#v100) |
+| [v1.X.0](#v1x0) |
 | [v1.0.0-rc.2](#v100-rc.2) |
 | [v1.0.0-rc.1](#v100-rc.1) |
 | [v1.0.0-rc.0](#v100-rc.0) |
 
 ---
 
-## v1.0.0:
+## v1.X.0:
 
-> **Upcoming Release...**
+>**Note:** A bundle of ideas, with no guarantee of implementation.
 
-No patch notes as of currently.
+### Possible Ideas
+- Switch from a duplicated `UILabel` to a custom `UILabel`.
+	- Will allow for easier implementation among each harmony patch.
+	- Change parameters in one place, instead of each harmony patch.
+	- May eliminate any incompatibilities.
+	- May introduce an issue of getting the `GearItem`, to change the rarity label.
+- Hide the rarity label if no rarity is found
+- Allows developers to set rarities for items within their modifications?
+	- Through an external `.json` shipped with the mod?
+	- Or just support every modification in a future update. **(most likely option)**
+- Animations?
+	 - Once a mythic item is found, possibly emphasise the rarity of the item by animating the label?
+	 - Similar to totem of undying from Minecraft?
+- Inventory
+	 - Add the ability to filter by rarity. From lowest (common) to highest (mythic).
 
 ---
 

@@ -12,13 +12,11 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 >**Disclaimer:** This modification is not an official part of The Long Dark and is not affiliated with Hinterland Studio Inc.
 
 ## Links
-To see the different item rarities, visit the [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/RARITIES.md).
+To see the different item rarities, visit the [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/Rarities.md).
 
 To see what is going on behind the scenes, visit the [**Github Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development).
 
-For insights about existing updates, visit the [**Changelog**](https://github.com/Deaadman/ItemRarities/blob/release/Information/CHANGELOG.md).
-
-For insights about upcoming updates, visit the [**Roadmap**](https://github.com/Deaadman/ItemRarities/blob/release/Information/ROADMAP.md).
+For insights about existing updates and upcoming updates, visit the [**Patch Notes**](https://github.com/Deaadman/ItemRarities/blob/release/Information/PatchNotes.md).
 
 ## Features
 - **Rarity Classification:** Each item now has a distinct visual indicator which represents its rarity.

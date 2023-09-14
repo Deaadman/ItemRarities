@@ -23,15 +23,19 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 	- Change parameters in one place, instead of each harmony patch.
 	- May eliminate any incompatibilities.
 	- May introduce an issue of getting the `GearItem`, to change the rarity label.
-- Hide the rarity label if no rarity is found
+- Possibly switch to an automatic rarity based system, by getting spawn rates of items using GearSpawner mod
+	- Suggested by [**Digitalzombie**](https://github.com/DigitalzombieTLD/)
 - Allows developers to set rarities for items within their modifications?
 	- Through an external `.json` shipped with the mod?
 	- Or just support every modification in a future update. **(most likely option)**
 - Animations?
-	 - Once a mythic item is found, possibly emphasise the rarity of the item by animating the label?
-	 - Similar to totem of undying from Minecraft?
+	- Once a mythic item is found, possibly emphasise the rarity of the item by animating the label?
+	- Similar to totem of undying from Minecraft?
 - Inventory
-	 - Add the ability to filter by rarity. From lowest (common) to highest (mythic).
+	- Add the ability to filter by rarity. From lowest (common) to highest (mythic).
+- Icons?
+	- When an item is hovered over, an icon with the colour of the rarity for a cleaner look.
+  	- Suggested by **RossBondReturns**
 
 ---
 
@@ -65,6 +69,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 ### Fixed
 - Fixed `Non-constant fields` warning by setting the dictionary to `public static readonly` from `public static`.
+- Fixed 8 more `Non-constant fields` warning by encapsulating each `UILabel` variable within each harmony patch.
 - Fixed 3 `'new' expression can be simplified` warnings throughout the project.
 - Fixed `'using' statement can be simplified` warning under the `GetEmbeddedResource()` method.
 - Fixed `Use 'switch' expression` warning in the `GetColorForRarity()` method.
@@ -75,7 +80,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Fixed `Uncommon` rarity type not being found.
 
 ### Acknowledgements
-- **RossBondReturns** - For their feedback on removing `INVALID` rarity, and to hide the `RarityLabel` if no `Rarity` is found for that item.
+- **RossBondReturns** - For their feedback on removing `INVALID` rarity, and to hide the `RarityLabel` if no rarity is found for that item.
 
 ---
 

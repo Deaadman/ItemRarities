@@ -7,9 +7,9 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [v1.X.0](#v1x0) |
-| [v1.0.0-rc.2](#v100-rc.2) |
-| [v1.0.0-rc.1](#v100-rc.1) |
-| [v1.0.0-rc.0](#v100-rc.0) |
+| [v1.0.0-rc.2](#v100-rc2) |
+| [v1.0.0-rc.1](#v100-rc1) |
+| [v1.0.0-rc.0](#v100-rc0) |
 
 ---
 

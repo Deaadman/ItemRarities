@@ -46,6 +46,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added code in `ItemRaritiesPatches.cs` that may be used in the future to streamline how the `UILabel` is duplicated.
 - Added all `First Aid` items to the `Rarities.json` file.
 - Added all `Tool` items to the `Rarities.json` file.
+- Added all `Material` items to the `Rarities.json` file.
+- Over 200 item have been added so far!
 
 ### Changed
 - Changed many explicit type declarations with `var`.

@@ -41,7 +41,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 ## v1.0.0:
 
-> **Upcoming Release...**
+> Released on the **15th of September 2023**.
 
 ### Added
 - Added `Logger.LogError();` logs all throughout the code, if something isn't working correctly.
@@ -53,7 +53,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added all `Tool` items to the `Rarities.json` file.
 - Added all `Material` items to the `Rarities.json` file.
 - Added all `Fire Starting` items to the `Rarities.json` file.
-- Over 250 items have been added so far!
+- Added all `Food` items to the `Rarities.json` file.
+- Over 350 items have been added so far!
 
 ### Changed
 - Changed many explicit type declarations with `var`.
@@ -62,6 +63,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Simplified code throughout the `ItemRarities.cs` file.
 - Changed `GetColorForRarity()` method to `GetRarityColor()`.
 - If an item doesn't have a rarity within the `.json` file, it now defaults to hiding the label.
+- Renamed the `.json` file from `GearRarities` to `TLDVanillaGearRarities`. This is for clarity when other `.jsons` are added.
 
 ### Removed / Deprecated
 - Removed redundant `Logger.LogError();` logs in `OnInitializeMelon()` method.

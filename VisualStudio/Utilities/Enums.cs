@@ -10,7 +10,6 @@
         Mythic,
 
         Story,
-        ERROR,
-        Default,
+        None
     }
 }

@@ -17,11 +17,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Rarities\GearRarities.json" />
+	  <None Remove="Rarities\TLDVanillaGearRarities.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Rarities\GearRarities.json" />
+	  <EmbeddedResource Include="Rarities\TLDVanillaGearRarities.json" />
 	</ItemGroup>
 
 	<!-- List of used references -->

@@ -45,7 +45,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 > **Upcoming Release...**
 
-No patch notes as of currently...
+### Fixed
+- Fixed rarities not showing for certain items within the `Cooking` UI.
 
 ---
 
@@ -73,7 +74,6 @@ No patch notes as of currently...
 - Removed `using static ItemRarities.Main;` from `ItemRarities.cs` as it was no longer being used.
 
 ### Fixed
-- Fixed rarities not showing for certain items within the `Cooking` UI.
 - Fixed `Non-nullable field` warning by initializing the `LocalizationManager` field directly.
 - Fixed `Use compound assignment` warning by supressing it, as it's a false-positive.
 - Fixed `Remove unused parameter` warning by supressing it, as if it is deleted it created a bunch of issues.

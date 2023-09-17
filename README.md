@@ -40,6 +40,8 @@ For insights about existing updates and upcoming updates, visit the [**Patch Not
 
 ## Known Issues
 Any issues for this modification will be made known here. Please report issues either through the TLD Modding [**discord server**](https://discord.gg/2mnXAZfGXQ) or the [**issues**](https://github.com/Deaadman/ItemRarities/issues) tab within this github repository.
+- No support for other modifications
+- No localization
 
 ## License
 This modification is released under the **MIT License.**

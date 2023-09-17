@@ -7,6 +7,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [v1.X.0](#v1x0) |
+| [v1.1.0](#v110) |
+| [v1.1.0-rc.0](#v110-rc0) |
 | [v1.0.0](#v100) |
 | [v1.0.0-rc.1](#v100-rc1) |
 | [v1.0.0-rc.0](#v100-rc0) |
@@ -36,6 +38,48 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Icons?
 	- When an item is hovered over, an icon with the colour of the rarity for a cleaner look.
   	- Suggested by **RossBondReturns**
+
+---
+
+## v1.1.0:
+
+> **Upcoming Release...**
+
+No patch notes as of currently...
+
+---
+
+## v1.1.0-rc.0:
+
+> Released on the **17th of September 2023**.
+
+### Added
+- Added a `Localization` folder and `LocalizationData.json` file which contains languages and their translations for each rarity.
+	- Current supports `English` and `Turkish`.
+	- If no translations is found, the labels currently don't show.
+		- Might need to investigate this further, to default back to `English`.
+	- *(For more translations, please open issues if you know any other languages)*.
+- Created a new `LocalizationManager.cs` which contains all the code for changing languages.
+- Added more comments throughout `ItemRaritiesPatches.cs` for clarity.
+- Added a `Logger.LogError()` in the `LoadLocalizationData()` method which helps the user know if it failed to load localization data.
+- Added `<summary>`'s before each method in `LocalizationManager.cs` for clarity.
+
+### Changed
+- Replaced all `rarityLabel.text = itemRarity.ToString();` to `rarityLabel.text = LocalizationManager.Instance.GetTranslation(itemRarity.ToString(), Localization.s_Language);`.
+- Renamed `Utilities` folder to `Miscellaneous` folder.
+- Changed `GetEmbeddedResource()` method to `public` from `private` so it's accessible from other classes.
+
+### Removed / Deprecated
+- Removed `using static ItemRarities.Main;` from `ItemRarities.cs` as it was no longer being used.
+
+### Fixed
+- Fixed rarities not showing for certain items within the `Cooking` UI.
+- Fixed `Non-nullable field` warning by initializing the `LocalizationManager` field directly.
+- Fixed `Use compound assignment` warning by supressing it, as it's a false-positive.
+- Fixed `Remove unused parameter` warning by supressing it, as if it is deleted it created a bunch of issues.
+
+### Acknowledgements
+- [**Elderly-Emre**](https://github.com/Elderly-Emre) - For opening an issue about localizations and providing the Turkish translations.
 
 ---
 

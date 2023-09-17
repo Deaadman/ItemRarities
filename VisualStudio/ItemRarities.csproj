@@ -17,10 +17,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Localization\LocalizationData.json" />
 	  <None Remove="Rarities\TLDVanillaGearRarities.json" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Localization\LocalizationData.json" />
 	  <EmbeddedResource Include="Rarities\TLDVanillaGearRarities.json" />
 	</ItemGroup>
 

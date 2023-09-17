@@ -39,7 +39,7 @@ namespace ItemRarities
         /// </summary>
         /// <param name="resourceName">The name of the embedded resource to fetch.</param>
         /// <exception cref="InvalidOperationException">Thrown when the specified embedded resource is not found.</exception>
-        private static string GetEmbeddedResource(string resourceName)
+        public static string GetEmbeddedResource(string resourceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
 

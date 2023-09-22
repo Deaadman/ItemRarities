@@ -6,7 +6,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 | Versions: |
 | - |
-| [v1.X.0](#v1x0) |
+| [vX.X.X](#vxxx) |
 | [v1.1.0](#v110) |
 | [v1.1.0-rc.0](#v110-rc0) |
 | [v1.0.0](#v100) |
@@ -15,29 +15,35 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 ---
 
-## v1.X.0:
+## vX.X.X:
 
 >**Note:** A bundle of ideas, with no guarantee of implementation.
 
-### Possible Ideas
-- Switch from a duplicated `UILabel` to a custom `UILabel`.
-	- Will allow for easier implementation among each harmony patch.
-	- Change parameters in one place, instead of each harmony patch.
-	- May eliminate any incompatibilities.
-	- May introduce an issue of getting the `GearItem`, to change the rarity label.
-- Possibly switch to an automatic rarity based system, by getting spawn rates of items using GearSpawner mod
-	- Suggested by [**Digitalzombie**](https://github.com/DigitalzombieTLD/)
-- Allows developers to set rarities for items within their modifications?
-	- Through an external `.json` shipped with the mod?
-	- Or just support every modification in a future update. **(most likely option)**
-- Animations?
-	- Once a mythic item is found, possibly emphasise the rarity of the item by animating the label?
-	- Similar to totem of undying from Minecraft?
+- Compatibility
+	- Support for other modifications which have custom items.
+		- Create separate `.json`'s for each external mod and set rarities.
+	- Implement a custom API system for easier integration.
+- Customization
+    - Give players the ability to change the colours of each rarity label using `ModSettings`.
 - Inventory
-	- Add the ability to filter by rarity. From lowest (common) to highest (mythic).
-- Icons?
-	- When an item is hovered over, an icon with the colour of the rarity for a cleaner look.
-  	- Suggested by **RossBondReturns**
+	- Add the ability to filter by rarity. From lowest `Common` to highest `Mythic`.'
+	- Add a small icon in each Inventory Grid item to show the rarity without clicking on the item.
+- Visual Enhancements
+	- Introduce different visual effects or glows for different rarity levels.
+		- For example, a pulsating glow for mythic items - or the label displaying on the screen once found.
+	- When an item is hovered, display a visual for the rarity type before inspecting or picking up.
+		- Can either do this through an icon or the label itself. Suggested by **RossBondReturns**
+- Modification Optimization
+	- Switch from a duplicated `UILabel` system to a standalone `UILabel` system.
+		- This allows for easier implementation amongst other harmony patches.
+		- Allows for values of the `UILabel` to be changed in one place, which updates across all.
+		- May improve performance and eliminate any incompatibilities.
+	- Switch to an automatic rarity-based system. Suggested by [**Digitalzombie**](https://github.com/DigitalzombieTLD/)
+		- Will be less time consuming, and will support all external modifications automatically. 
+		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
+		- Getting values for each item may also be another possibility.
+	- Instead of using custom localization code, switch to the `LocalizationUtilities` mod to handle everything.
+	- Complete re-write of the mod (v2.0.0)?
 
 ---
 

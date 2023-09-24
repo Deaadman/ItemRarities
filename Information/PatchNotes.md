@@ -29,6 +29,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 	- Implement a custom API system for easier integration.
 - Customization
     - Give players the ability to change the colours of each rarity label using `ModSettings`.
+    	- Some sort of display showing the differences in colour?
 - Accessibility
 	- Use `ModSettings` to allow users to set colourblind options from Deuteranopia, Protanopia and Tritanopia.
 - Inventory
@@ -48,7 +49,6 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 		- Will be less time consuming, and will support all external modifications automatically. 
 		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
 		- Getting values for each item may also be another possibility.
-	- Instead of using custom localization code, switch to the `LocalizationUtilities` mod to handle everything.
 	- Complete re-write of the mod (v2.0.0)?
 
 ---
@@ -77,6 +77,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Moved `VanillaRarities.json` and `LocalizationData.json` into the `Data` folder.
 - Updated all lines of code referencing the old `Localization` and `Rarities` folders.
 - Renamed `ItemRaritiesPatches.cs` to `Patches.cs`.
+- Localization now defaults to `English` if no translation is found.
 
 ### Fixed
 - Fixed rarities not showing for all the uncooked items within the `Cooking` UI.

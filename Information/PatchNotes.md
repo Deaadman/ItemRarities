@@ -67,7 +67,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added `LoadLocalizations()` and `GetLocalizedRarity()` methods, these load the localizations and get them.
 - Added another `Dictionary` in order to store the `LocalizationData.json` information.
 - Added `LoadLocalizations()` method to `OnInitializeMelon()` in order to actually load the localizations.
-- Added `LocalizationUtilities` NuGet package to project to reference scripts from the mod.
+- Added `LocalizationUtilities` and `ModSettings` NuGet packages to the project in order to reference scripts from each mod.
 - Created a new `Data` folder, this will store all new `.json` files for now on.
 
 ### Changed / Updated

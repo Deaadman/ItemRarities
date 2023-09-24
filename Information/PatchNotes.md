@@ -25,6 +25,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 	- Implement a custom API system for easier integration.
 - Customization
     - Give players the ability to change the colours of each rarity label using `ModSettings`.
+- Accessibility
+	- Use `ModSettings` to allow users to set colourblind options from Deuteranopia, Protanopia and Tritanopia.
 - Inventory
 	- Add the ability to filter by rarity. From lowest `Common` to highest `Mythic`.'
 	- Add a small icon in each Inventory Grid item to show the rarity without clicking on the item.
@@ -188,4 +190,4 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Commented out unused pieces of code. May be revisited in the future.
 
 ### Fixed
-- Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label.
+- Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label.aaaa

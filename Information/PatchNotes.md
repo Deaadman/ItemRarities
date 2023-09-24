@@ -1,4 +1,7 @@
-# Patch Notes
+<p align="center">
+    <a href="#"><img src="https://raw.githubusercontent.com/Deaadman/ItemRarities/release/Images/TitleCardPatchNotes.png"></a>
+
+---
 
 Welcome to the patch notes for this modification. This document provides a detailed insight into the history of every update made to this project. These patch notes keep you informed about the latest additions, bug fixes and enhancements which each release. Along with current information, it also brings you insights as to upcoming possible ideas.
 
@@ -8,6 +11,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | - |
 | [vX.X.X](#vxxx) |
 | [v1.1.0](#v110) |
+| [v1.1.0-rc.1](#v110-rc1) |
 | [v1.1.0-rc.0](#v110-rc0) |
 | [v1.0.0](#v100) |
 | [v1.0.0-rc.1](#v100-rc1) |
@@ -53,8 +57,40 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 > **Upcoming Release...**
 
+---
+
+## v1.1.0-rc.1:
+
+> **Upcoming Release...**
+
+### Added
+- Added `LoadLocalizations()` and `GetLocalizedRarity()` methods, these load the localizations and get them.
+- Added another `Dictionary` in order to store the `LocalizationData.json` information.
+- Added `LoadLocalizations()` method to `OnInitializeMelon()` in order to actually load the localizations.
+- Added `LocalizationUtilities` NuGet package to project to reference scripts from the mod.
+- Created a new `Data` folder, this will store all new `.json` files for now on.
+
+### Changed / Updated
+- Renamed the `TLDVanillaGearRarities.json` to `VanillaRarities.json` for clarity.
+- When no translation is found for a specific language, it now defaults to English.
+- Replaced all `rarityLabel.text = LocalizationManager.Instance.GetTranslation(itemRarity.ToString(), Localization.s_Language);` to `rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);` within `ItemRaritiesPatches.cs`.
+- Moved `VanillaRarities.json` and `LocalizationData.json` into the `Data` folder.
+- Updated all lines of code referencing the old `Localization` and `Rarities` folders.
+- Renamed `ItemRaritiesPatches.cs` to `Patches.cs`.
+
 ### Fixed
-- Fixed rarities not showing for certain items within the `Cooking` UI.
+- Fixed rarities not showing for all the uncooked items within the `Cooking` UI.
+- Fixed `Non-constant fields should not be visible` warning within the new `Dictionary`.
+- Fixed `'new' expression can be simplified` warning by using the target-typed `new` expression.
+- Fixed `Converting null literal or possible null value to non-nullable type` warning by checking that `stream` is null before passing it to `StreamReader`.
+- Fixed 2 `Possible null reference` warnings by ensuring `LocalizationData` always has a default value.
+- Fixed `'new' expression can be simplified` warning in the `LoadLocalization()` method.
+- Fixed `Unnecessary assignment of value to 'results'` warning by removing the blank `string` afterwards.
+
+### Removed / Deprecated
+- Removed `LocalizationManager.cs` as it now requires the `LocalizationUtilities` mod to run.
+- Removed some comments and unused lines within `ItemRarites.csproj` for clarity.
+- Deleted `Localization` and `Rarities` folder.
 
 ---
 

@@ -1,4 +1,7 @@
-# Rarities
+<p align="center">
+    <a href="#"><img src="https://raw.githubusercontent.com/Deaadman/ItemRarities/release/Images/TitleCardRarities.png"></a>
+
+---
 
 Rarities are arbitrary properties given to all items; while it does not impact gameplay, they reflect an item's value, usefulness, or acquirement. To see the spreadsheet of items and their rarities, visit the [**Item Rarities Spreadsheet**](https://docs.google.com/spreadsheets/d/1GYx75iHGRJ5AfWfUAXs2Kjo12n39vlJQqztVXXeLwZs/edit?usp=sharing).
 

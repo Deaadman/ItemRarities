@@ -1,4 +1,7 @@
-# Compatibility
+<p align="center">
+    <a href="#"><img src="https://raw.githubusercontent.com/Deaadman/ItemRarities/release/Images/TitleCardCompatibility.png"></a>
+
+---
 
 This document outlines the compatibility of this modification with various versions of The Long Dark and other modifications. The goal is to inform users about the versions this mod is compatible with and to identify potential incompatibilities or unsupported modifications.
 

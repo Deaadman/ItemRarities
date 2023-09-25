@@ -30,8 +30,6 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Customization
     - Give players the ability to change the colours of each rarity label using `ModSettings`.
     	- Some sort of display showing the differences in colour?
-- Accessibility
-	- Use `ModSettings` to allow users to set colourblind options from Deuteranopia, Protanopia and Tritanopia.
 - Inventory
 	- Add the ability to filter by rarity. From lowest `Common` to highest `Mythic`.'
 	- Add a small icon in each Inventory Grid item to show the rarity without clicking on the item.
@@ -53,24 +51,38 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 ---
 
-## v1.1.0:
+## v1.1.0 - The Accessibility Update:
 
 > **Upcoming Release...**
+
+### Highlights / Key Changes:
+- Now supports multiple languages! (If you would like a language to be added, please open an [issue](https://github.com/Deaadman/ItemRarities/issues) and provide the translations)
+- New accessibility options for colorblind people.
+- Now requires `ModSettings` and `Localization Utilities` as dependencies.
+- Adjusted the default rarity colors.
+- Fixed rarities not showing for items underneath the Cooking UI.
 
 ---
 
 ## v1.1.0-rc.1:
 
-> **Upcoming Release...**
+> Released on the **25th of September 2023**.
 
-### Added
+### Added:
 - Added `LoadLocalizations()` and `GetLocalizedRarity()` methods, these load the localizations and get them.
-- Added another `Dictionary` in order to store the `LocalizationData.json` information.
-- Added `LoadLocalizations()` method to `OnInitializeMelon()` in order to actually load the localizations.
+- Added 2 `Dictionary`'s in order to store the `LocalizationData.json` and `ColorblindMode` information.
+- Added `LoadLocalizations()` and `Settings.OnLoad()` method to `OnInitializeMelon()` in order to actually load the localizations and settings.
 - Added `LocalizationUtilities` and `ModSettings` NuGet packages to the project in order to reference scripts from each mod.
 - Created a new `Data` folder, this will store all new `.json` files for now on.
+- Added a new `Settings.cs` file underneath the `Miscellaneous` folder to allow players to set options.
+- Added 2 accessibility options, Colour Blind Mode and Colour Blind Strength within `Settings.cs`.
+- Added colour blind options from `Deuteranope`, `Protanope` and `Tritanope` - with `None` still being an option.
+- Added a new `ColorblindMode` enum within `Enums.cs`.
+- Added new hex codes for each colorblindness mode.
+- Added 2 new methods called `GetOriginalColor()` and `GetColorblindAdjustedColor()` for the transition between colours.
+- Added more XML documentation to the newly added methods.
 
-### Changed / Updated
+### Changed / Updated:
 - Renamed the `TLDVanillaGearRarities.json` to `VanillaRarities.json` for clarity.
 - When no translation is found for a specific language, it now defaults to English.
 - Replaced all `rarityLabel.text = LocalizationManager.Instance.GetTranslation(itemRarity.ToString(), Localization.s_Language);` to `rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);` within `ItemRaritiesPatches.cs`.
@@ -78,8 +90,9 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Updated all lines of code referencing the old `Localization` and `Rarities` folders.
 - Renamed `ItemRaritiesPatches.cs` to `Patches.cs`.
 - Localization now defaults to `English` if no translation is found.
+- Updated existing hex codes to fit in better with the new colourblind colours.
 
-### Fixed
+### Fixed:
 - Fixed rarities not showing for all the uncooked items within the `Cooking` UI.
 - Fixed `Non-constant fields should not be visible` warning within the new `Dictionary`.
 - Fixed `'new' expression can be simplified` warning by using the target-typed `new` expression.
@@ -87,11 +100,14 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Fixed 2 `Possible null reference` warnings by ensuring `LocalizationData` always has a default value.
 - Fixed `'new' expression can be simplified` warning in the `LoadLocalization()` method.
 - Fixed `Unnecessary assignment of value to 'results'` warning by removing the blank `string` afterwards.
+- Fixed another `Converting null literal or possible null value to non-nullable type` warning by adding a nullable condition.
+- Fixed `make field readonly` warning by putting `readonly` in front of the colorblind mode dictionary.
 
-### Removed / Deprecated
+### Removed / Deprecated:
 - Removed `LocalizationManager.cs` as it now requires the `LocalizationUtilities` mod to run.
 - Removed some comments and unused lines within `ItemRarites.csproj` for clarity.
 - Deleted `Localization` and `Rarities` folder.
+- Deleted the `HandleUnrecognizedRarity()` method as the `GetColorblindAdjustedColor()` method essentially replaces it.
 
 ---
 
@@ -99,7 +115,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 > Released on the **17th of September 2023**.
 
-### Added
+### Added:
 - Added a `Localization` folder and `LocalizationData.json` file which contains languages and their translations for each rarity.
 	- Current supports `English` and `Turkish`.
 	- If no translations is found, the labels currently don't show.
@@ -110,29 +126,33 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added a `Logger.LogError()` in the `LoadLocalizationData()` method which helps the user know if it failed to load localization data.
 - Added `<summary>`'s before each method in `LocalizationManager.cs` for clarity.
 
-### Changed
+### Changed:
 - Replaced all `rarityLabel.text = itemRarity.ToString();` to `rarityLabel.text = LocalizationManager.Instance.GetTranslation(itemRarity.ToString(), Localization.s_Language);`.
 - Renamed `Utilities` folder to `Miscellaneous` folder.
 - Changed `GetEmbeddedResource()` method to `public` from `private` so it's accessible from other classes.
 
-### Removed / Deprecated
+### Removed / Deprecated:
 - Removed `using static ItemRarities.Main;` from `ItemRarities.cs` as it was no longer being used.
 
-### Fixed
+### Fixed:
 - Fixed `Non-nullable field` warning by initializing the `LocalizationManager` field directly.
 - Fixed `Use compound assignment` warning by supressing it, as it's a false-positive.
 - Fixed `Remove unused parameter` warning by supressing it, as if it is deleted it created a bunch of issues.
 
-### Acknowledgements
+### Acknowledgements:
 - [**Elderly-Emre**](https://github.com/Elderly-Emre) - For opening an issue about localizations and providing the Turkish translations.
 
 ---
 
-## v1.0.0:
+## v1.0.0 - Launch Release:
 
 > Released on the **15th of September 2023**.
 
-### Added
+### Highlights / Key Changes:
+- Now supports all vanilla items!
+- Mod is officially released!
+
+### Added:
 - Added `Logger.LogError();` logs all throughout the code, if something isn't working correctly.
 - Added a `GetColor()` method to reduce redundant code all in the `GetColorForRarity()` method.
 - Added `<summary>`'s before methods to provide information for its use.
@@ -145,7 +165,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Added all `Food` items to the `Rarities.json` file.
 - Over 350 items have been added so far!
 
-### Changed
+### Changed:
 - Changed many explicit type declarations with `var`.
 - Changed `ContainsKey` to `TryGetValue` in the `GetRarity()` method, for a more efficient lookup in the dictionary.
 - Changed `Enum.Parse()` method to `Enum.TryParse()` for the ability to add error handling.
@@ -154,12 +174,12 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - If an item doesn't have a rarity within the `.json` file, it now defaults to hiding the label.
 - Renamed the `.json` file from `GearRarities` to `TLDVanillaGearRarities`. This is for clarity when other `.jsons` are added.
 
-### Removed / Deprecated
+### Removed / Deprecated:
 - Removed redundant `Logger.LogError();` logs in `OnInitializeMelon()` method.
 - Removed `Default` rarity type.
 - Removed `Invalid` rarity type.
 
-### Fixed
+### Fixed:
 - Fixed `Non-constant fields` warning by setting the dictionary to `public static readonly` from `public static`.
 - Fixed 8 more `Non-constant fields` warning by encapsulating each `UILabel` variable within each harmony patch.
 - Fixed 3 `'new' expression can be simplified` warnings throughout the project.
@@ -171,7 +191,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Fixed `Unboxing a possibly null value` warning by checking if `rarityObj` is null before unboxing it.
 - Fixed `Uncommon` rarity type not being found.
 
-### Acknowledgements
+### Acknowledgements:
 - **RossBondReturns** - For their feedback on removing `INVALID` rarity, and to hide the `RarityLabel` if no rarity is found for that item.
 
 ---
@@ -180,26 +200,26 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 > Released on the **12th of September 2023**.
 
-### Added
+### Added:
 - Added `#region`'s and `//` comments within the harmony patches, for easier readability and identification.
 
-### Updated
+### Updated:
 - Updated `GetEmbeddedResource()` method to use a more concise using statement for readability.
 
-### Changed
+### Changed:
 - The `.json` file is now embedded into the `.dll`.
 
-### Removed / Deprecated
+### Removed / Deprecated:
 - Removed all `[Obsolete]` methods.
 - `OnApplicationStart` method is deprecated, switched to `OnInitializeMelon`.
 - Deleted `Utilities.cs` file.
 - Removed another pesky `Logger.Log()` console log.
 - Deleted `Settings` and `Settings.cs` folder and file.
 
-### Fixed
+### Fixed:
 - Fixed the path to the `.json` file being an absolute fixed path, meaning you could only access it if you had the `.json` file on your computer in that exact location.
 
-### Acknowledgements
+### Acknowledgements:
 - [**Digitalzombie**](https://github.com/DigitalzombieTLD/) - For identifying the absolute fixed `.json` path error.
 - [**The Illusion**](https://github.com/Arkhorse) - For their knowledge on `[Obsolete]` methods, and how they should never be used.
 - [**Fuar**](https://github.com/Fuar11) - For their observation on the deprecated `OnApplicationStart` method being used.
@@ -210,21 +230,21 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 > Released on the **11th of September 2023**.
 
-### Added
+### Added:
 - Added the ability to add items through their `GEAR_` name, such as `GEAR_Rifle` and `GEAR_Jeans`.
 - Added the first batch of `GEAR_` items to the `Rarities.json` file.
 
-### Updated
+### Updated:
 - Updated `Rarity.ERROR` to `Rarity.INVALIDRARITY` and then to `Rarity.INVALID`.
 - Updated the `itemRarities` dictionary to read a `.json` file for easier readability and editability.
 
-### Changed
+### Changed:
 - Changed some of the methods from `Update` for improved performance.
 
-### Removed / Deprecated
+### Removed / Deprecated:
 - Items are no longer found using strings of text, such as `Hunting Rifle` and `HUNTING RIFLE`.
 - Removed all `Logger.Log()` console logs, which were used for debugging.
 - Commented out unused pieces of code. May be revisited in the future.
 
-### Fixed
+### Fixed:
 - Fixed both the `Panel_Crafting` and `Panel_ActionsRadial` to properly display and hide the rarity label.aaaa

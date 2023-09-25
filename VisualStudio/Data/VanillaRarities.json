@@ -96,6 +96,7 @@
     "GEAR_WaterSupplyNotPotable",
     "GEAR_WoolWrapCap"
   ],
+
   "Uncommon": [
     "GEAR_Acorn",
     "GEAR_AcornCoffeeCup",
@@ -187,8 +188,16 @@
     "GEAR_WoolSweater",
     "GEAR_WoolWrap",
     "GEAR_WorkBoots",
-    "GEAR_WorkGloves"
+    "GEAR_WorkGloves",
+    "GEAR_UncookedBannock",
+    "GEAR_UncookedPancake",
+    "GEAR_UncookedPieFishermans",
+    "GEAR_UncookedPiePeach",
+    "GEAR_UncookedPieRabbit",
+    "GEAR_UncookedPieVenison",
+    "GEAR_UncookedPorridge"
   ],
+
   "Rare": [
     "GEAR_Accelerant",
     "GEAR_AccelerantKerosene",
@@ -273,8 +282,18 @@
     "GEAR_TipUp",
     "GEAR_WaterPurificationTablets",
     "GEAR_WoolShirt",
-    "GEAR_WorkPants"
+    "GEAR_WorkPants",
+    "GEAR_UncookedBannockAcorn",
+    "GEAR_UncookedPancakeAcorn",
+    "GEAR_UncookedPiePtarmigan",
+    "GEAR_UncookedPieRoseHip",
+    "GEAR_UncookedStewMeat",
+    "GEAR_UncookedStewPtarmigan",
+    "GEAR_UncookedStewRabbit",
+    "GEAR_UncookedStewTrout",
+    "GEAR_UncookedStewVenison"
   ],
+
   "Epic": [
     "GEAR_BearHide",
     "GEAR_BedRoll_Down",
@@ -325,8 +344,14 @@
     "GEAR_Rifle_Vaughns",
     "GEAR_SurvivalElevatorCrank",
     "GEAR_Toque",
-    "GEAR_WolfPelt"
+    "GEAR_WolfPelt",
+    "GEAR_UncookedFishcakes",
+    "GEAR_UncookedPancakePeach",
+    "GEAR_UncookedPieForagers",
+    "GEAR_UncookedPorridgeFruit",
+    "GEAR_UncookedStewVegetables"
   ],
+
   "Legendary": [
     "GEAR_BallisticVest",
     "GEAR_BearHideDried",
@@ -338,6 +363,8 @@
     "GEAR_CookedPieMeat",
     "GEAR_CookedPiePredator",
     "GEAR_CookedSmallMouthBass",
+    "GEAR_UncookedPieMeat",
+    "GEAR_UncookedPiePredator",
     "GEAR_CowichanSweater",
     "GEAR_Crackers",
     "GEAR_Crampons",
@@ -356,6 +383,7 @@
     "GEAR_WolfPeltDried",
     "GEAR_WolfSkinCape"
   ],
+
   "Mythic": [
     "GEAR_BearSkinCoat",
     "GEAR_Rifle_Barbs"

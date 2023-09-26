@@ -7,11 +7,7 @@
     <a href="https://github.com/Deaadman/ItemRarities/releases/latest"><img src="https://img.shields.io/github/v/release/Deaadman/ItemRarities?label=latest&style=for-the-badge"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg?style=for-the-badge"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg?style=for-the-badge"></a>
-
-<p align="center">
-	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/v/tag/Deaadman/ItemRarities?label=latest%20pre-release&style=for-the-badge&color=red"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/issues"><img src="https://img.shields.io/github/issues/Deaadman/ItemRarities?style=for-the-badge"></a>
-	<a href="https://github.com/Deaadman/ItemRarities/blob/release/Information/Compatibility.md"><img src="https://img.shields.io/badge/Compatibility-Read%20More-blue?style=for-the-badge"></a>
 
 ---
 
@@ -23,7 +19,6 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 -  **Rarity Classification:** Each item now has a distinct visual indicator which represents its rarity.
 -  **Enhanced Immersion**: Rarer items now feel like are they worth something once found.
 -  **Supports Multiple Languages**: Currently supports English and Turkish.
--  **No Dependencies Required**: This modification works alone without anything else.
 
 ---
 
@@ -31,9 +26,8 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 
 - [**Patch Notes**](https://github.com/Deaadman/ItemRarities/blob/release/Information/PatchNotes.md): Explore existing updates and stay informed about upcoming changes.
 - [**Compatibility**](https://github.com/Deaadman/ItemRarities/blob/release/Information/Compatibility.md): Review what is compatible, incompatible, or unsupported.
-- [**Development Branch**](https://github.com/Deaadman/ItemRarities/tree/development): Get a sneak peek at what's in progress before each official release.
 - [**Rarities**](https://github.com/Deaadman/ItemRarities/blob/release/Information/Rarities.md): Learn more about item rarities and their details.
-- [**Images**](https://github.com/Deaadman/ItemRarities/tree/release/Images): Images which showcase the different features of this modification.
+- [**Mod Showcase**](https://github.com/Deaadman/ItemRarities/blob/release/Information/Showcase.md): Images which showcase the different features of this modification.
 
 ---
 

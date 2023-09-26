@@ -10,8 +10,8 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [vX.X.X](#vxxx) |
-| [v1.1.0](#v110) |
-| [v1.0.0](#v100) |
+| [v1.1.0](#v110---the-accessibility-update) |
+| [v1.0.0](#v100---initial-launch) |
 
 ---
 
@@ -49,7 +49,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 ## v1.1.0 - The Accessibility Update:
 
-> **Upcoming Release...**
+> Released on the **26th of September 2023**.
 
 ### Highlights / Key Changes:
 - Now supports multiple languages! (If you would like a language to be added, please open an [issue](https://github.com/Deaadman/ItemRarities/issues) and provide the translations)
@@ -83,6 +83,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Changed the `GetEmbeddedResource()` method to `public` from `private` so it's accessible from other classes.
 - Changed the name of `TLDVanillaGearRarities.json` to `VanillaRarities.json`.
 - Changed the name of `ItemRaritiesPatches.cs` to `Patches.cs`.
+- Changed the build solution from `Debug` to `Release`.
 <br></br>
 - Updated all the `rarityLabel.text = itemRarity.ToString();`'s to `rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);`'s within `ItemRaritiesPatches.cs`.
 - Updated the location of`VanillaRarities.json` and `LocalizationData.json` into the `Data` folder.

@@ -14,7 +14,7 @@ This modification has been tested and is confirmed to be compatible with the fol
 
 - [**The Long Dark**](https://store.steampowered.com/news/app/305620) - Version: **v2.22**  
 - [**MelonLoader**](https://github.com/LavaGang/MelonLoader/releases) - Version: **v0.6.1**  
-
+<br></br>
 - [**ModSettings**](https://github.com/DigitalzombieTLD/ModSettings/releases) - Version: **v2.0.0**  
 - [**Localization Utilites**](https://github.com/dommrogers/LocalizationUtilities/releases) - Version: **v2.0.0**  
 

@@ -33,7 +33,7 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
+            rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             rarityLabel.color = rarityColor;
         }
     }
@@ -69,7 +69,7 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
+            rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             rarityLabel.color = rarityColor;
         }
     }
@@ -107,7 +107,7 @@ namespace ItemRarities
                 clothingRarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            clothingRarityLabel.text = itemRarity.ToString();
+            clothingRarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             clothingRarityLabel.color = rarityColor;
         }
     }
@@ -143,7 +143,7 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
+            rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             rarityLabel.color = rarityColor;
         }
     }
@@ -188,7 +188,7 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
+            rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             rarityLabel.color = rarityColor;
             rarityLabel.enabled = true;
         }
@@ -225,7 +225,7 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
+            rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             rarityLabel.color = rarityColor;
         }
     }
@@ -286,7 +286,7 @@ namespace ItemRarities
 
                 if (!excludedNames.Contains(itemName) && !string.IsNullOrEmpty(itemName))
                 {
-                    rarityLabel.text = itemRarity.ToString();
+                    rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
                     rarityLabel.color = rarityColor;
                     rarityLabel.gameObject.SetActive(true);
                     return;
@@ -374,7 +374,7 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            rarityLabel.text = itemRarity.ToString();
+            rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
             rarityLabel.color = rarityColor;
         }
     }
@@ -429,7 +429,7 @@ namespace ItemRarities
                         rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
                     }
 
-                    rarityLabel.text = itemRarity.ToString();
+                    rarityLabel.text = GetLocalizedRarity(itemRarity.ToString(), Localization.s_Language);
                     rarityLabel.color = rarityColor;
                 }
             } */
@@ -451,7 +451,8 @@ namespace ItemRarities
         }
     } */
 
-    public static class RarityUtilities
+    // May be used in the future to streamline the Rarity Label process.
+    public static class RarityUtilities 
     {
         #region Constants
         public const float RarityLabelScale = 0.75f;

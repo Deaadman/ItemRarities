@@ -12,4 +12,12 @@
         Story,
         None
     }
+
+    public enum ColorblindMode
+    {
+        None,
+        Deuteranope,
+        Protanope,
+        Tritanope
+    }
 }

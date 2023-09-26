@@ -5,11 +5,68 @@ namespace ItemRarities
 {
     public class Main : MelonMod
     {
+        public static Dictionary<string, Dictionary<string, string>> LocalizationData { get; private set; } = new();
         public static readonly Dictionary<string, Rarity> gearRarities = new(StringComparer.OrdinalIgnoreCase);
+        
+        private static readonly Dictionary<ColorblindMode, Dictionary<Rarity, string>> colorMappings = new()
+        {
+            {
+                ColorblindMode.None, new()
+                {
+                    {Rarity.Common, "#9ea3a9"},
+                    {Rarity.Uncommon, "#53ab01"},
+                    {Rarity.Rare, "#0097de"},
+                    {Rarity.Epic, "#b147e5"},
+                    {Rarity.Legendary, "#e58437"},
+                    {Rarity.Mythic, "#d1b450"},
+
+                    {Rarity.Story, "#49dcc0"},
+                }
+            },
+            {
+                ColorblindMode.Deuteranope, new()
+                {
+                    {Rarity.Common, "#9fa4aa"},
+                    {Rarity.Uncommon, "#214700"},
+                    {Rarity.Rare, "#024bba"},
+                    {Rarity.Epic, "#e9b5fd"},
+                    {Rarity.Legendary, "#ffb14d"},
+                    {Rarity.Mythic, "#d1b051"},
+
+                    {Rarity.Story, "#1d7990"},
+                }
+            },
+            {
+                ColorblindMode.Protanope, new()
+                {
+                    {Rarity.Common, "#9fa4aa"},
+                    {Rarity.Uncommon, "#3f8403"},
+                    {Rarity.Rare, "#0065ae"},
+                    {Rarity.Epic, "#c972fd"},
+                    {Rarity.Legendary, "#fca44b"},
+                    {Rarity.Mythic, "#e2bf61"},
+
+                    {Rarity.Story, "#21a68b"},
+                }
+            },
+            {
+                ColorblindMode.Tritanope, new()
+                {
+                    {Rarity.Common, "#a2a7ad"},
+                    {Rarity.Uncommon, "#1c7302"},
+                    {Rarity.Rare, "#27c2ff"},
+                    {Rarity.Epic, "#da73ff"},
+                    {Rarity.Legendary, "#c56916"},
+                    {Rarity.Mythic, "#ad902c"},
+
+                    {Rarity.Story, "#4fe1cc"},
+                }
+            }
+        };
 
         public override void OnInitializeMelon()
         {
-            string json = GetEmbeddedResource("ItemRarities.Rarities.TLDVanillaGearRarities.json");
+            string json = GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
             var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json);
 
             if (rarityData == null)
@@ -32,6 +89,9 @@ namespace ItemRarities
                     Logger.LogError($"Failed to parse rarity group key '{rarityGroup.Key}' as a Rarity enum.");
                 }
             }
+
+            LoadLocalizations();
+            Settings.OnLoad();
         }
 
         /// <summary>
@@ -39,7 +99,7 @@ namespace ItemRarities
         /// </summary>
         /// <param name="resourceName">The name of the embedded resource to fetch.</param>
         /// <exception cref="InvalidOperationException">Thrown when the specified embedded resource is not found.</exception>
-        private static string GetEmbeddedResource(string resourceName)
+        public static string GetEmbeddedResource(string resourceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
@@ -85,23 +145,37 @@ namespace ItemRarities
         /// <param name="rarity">The rarity of the item.</param>
         public static Color GetRarityColor(Rarity rarity)
         {
-            return rarity switch
-            {
-                Rarity.Common => GetColor("#9da1a4", Color.white),
-                Rarity.Uncommon => GetColor("#4fa528", Color.green),
-                Rarity.Rare => GetColor("#54b0fd", Color.blue),
-                Rarity.Epic => GetColor("#9c4bc1", Color.magenta),
-                Rarity.Legendary => GetColor("#fb9b34", Color.yellow),
-                Rarity.Mythic => GetColor("#edc643", Color.yellow),
-                Rarity.Story => GetColor("#47bcb3", Color.cyan),
-                _ => HandleUnrecognizedRarity(),
-            };
+            Color originalColor = GetOriginalColor(rarity);
+            Color colorblindColor = GetColorblindAdjustedColor(rarity);
+
+            float t = Settings.Instance.ColorblindnessStrength / 10f;
+            return Color.Lerp(originalColor, colorblindColor, t);
         }
 
-        private static Color HandleUnrecognizedRarity()
+        /// <summary>
+        /// Retrieves the original color associated with a specific item rarity.
+        /// </summary>
+        /// <param name="rarity">The rarity of the item.</param>
+        private static Color GetOriginalColor(Rarity rarity)
         {
-            Logger.LogError("Unrecognized rarity type encountered.");
-            return Color.white;
+            string hexColor = colorMappings[ColorblindMode.None][rarity];
+            return GetColor(hexColor, Color.white);
+        }
+
+        /// <summary>
+        /// Retrieves the color associated with a specific item rarity, adjusted for the current colorblind setting.
+        /// </summary>
+        /// <param name="rarity">The rarity of the item.</param>
+        private static Color GetColorblindAdjustedColor(Rarity rarity)
+        {
+            var currentMode = Settings.Instance.ColorblindSetting;
+
+            if (!colorMappings[currentMode].TryGetValue(rarity, out var hexColor) || hexColor == null)
+            {
+                Logger.LogError("Unrecognized rarity type encountered.");
+                hexColor = "#FFFFFF";
+            }
+            return GetColor(hexColor, Color.white);
         }
 
         /// <summary>
@@ -121,6 +195,51 @@ namespace ItemRarities
                 Logger.LogWarning($"Failed to parse color string '{htmlColor}'. Returning default color.");
                 return defaultColor;
             }
+        }
+
+        /// <summary>
+        /// Loads the localization data from the embedded resource into the application.
+        /// </summary>
+        public static void LoadLocalizations()
+        {
+            var JSONfile = "ItemRarities.Data.LocalizationData.json";
+            string results;
+
+            using Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(JSONfile);
+            if (stream == null)
+            {
+                Logger.LogError($"Failed to load resource '{JSONfile}'.");
+                return;
+            }
+
+            using StreamReader reader = new(stream);
+            results = reader.ReadToEnd();
+
+            var deserializedData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(results);
+            LocalizationData = deserializedData ?? new();
+        }
+
+        /// <summary>
+        /// Retrieves the localized string for a given rarity based on the selected language.
+        /// </summary>
+        /// <param name="rarity">The rarity of the item.</param>
+        /// <param name="language">The desired language for the localization. Defaults to "English".</param>
+        public static string GetLocalizedRarity(string rarity, string language = "English")
+        {
+            if (LocalizationData.TryGetValue(rarity, out var languageData))
+            {
+                if (languageData.TryGetValue(language, out var localizedString) && !string.IsNullOrEmpty(localizedString))
+                {
+                    return localizedString;
+                }
+
+                if (languageData.TryGetValue("English", out var defaultEnglishString))
+                {
+                    return defaultEnglishString;
+                }
+            }
+
+            return rarity;
         }
     }
 }

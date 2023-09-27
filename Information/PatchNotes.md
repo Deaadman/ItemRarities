@@ -10,6 +10,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [vX.X.X](#vxxx) |
+| [v1.1.1](#v111---the-accessibility-update) |
 | [v1.1.0](#v110---the-accessibility-update) |
 | [v1.0.0](#v100---initial-launch) |
 
@@ -44,6 +45,37 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
 		- Getting values for each item may also be another possibility.
 	- Complete re-write of the mod (v2.0.0)?
+
+---
+
+## v1.1.1 - The Accessibility Update:
+
+> Released on the **27th of September 2023**.
+
+### Highlights / Key Changes:
+- Now supports Italian! Thanks to [**LettereUniche**](https://github.com/LettereUniche) for providing translations.
+- Translations now default to the text '**No Translation Found**'.
+- Updated for The Long Dark v2.23.
+
+### Added:
+- Added Italian translations to the `LocalizationData.json`.
+- Added a new section within the `LoadLocalizations()` method to parse the localization data.
+- Added more `Logger.LogError()`'s throughout the Localization methods.
+- Added `#regions` throughout `ItemRarities.cs` for clean up.
+
+### Changed / Updated:
+- Changed the `LoadLocalizations()` method to include the `LoadJsonLocalization()` method from `LocalizationUtilities`.
+- Changed the `GetRarityLocalization()` method to `GetTranslation()`.
+- Changed the translation defaulting to `English`, now it defaults to `No Translation Found`.
+<br></br>
+- Updated the `TLD.Il2CppAssemblies` NuGet package from 2.17.0 to 2.23.0
+- Updated all the `rarityLabel.text`'s to now use the new method name `GetTranslation()`.
+
+### Fixed:
+- Fixed this mod not actually using `LocalizationUtilities`.
+
+### Acknowledgements:
+- [**LettereUniche**](https://github.com/LettereUniche) - For opening an issue and providing the Italian translations.
 
 ---
 

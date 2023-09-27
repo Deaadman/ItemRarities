@@ -7,7 +7,8 @@ namespace ItemRarities
     {
         public static Dictionary<string, Dictionary<string, string>> LocalizationData { get; private set; } = new();
         public static readonly Dictionary<string, Rarity> gearRarities = new(StringComparer.OrdinalIgnoreCase);
-        
+
+        #region Colourblind Dictionary Hex Codes
         private static readonly Dictionary<ColorblindMode, Dictionary<Rarity, string>> colorMappings = new()
         {
             {
@@ -63,6 +64,7 @@ namespace ItemRarities
                 }
             }
         };
+        #endregion
 
         public override void OnInitializeMelon()
         {
@@ -113,6 +115,7 @@ namespace ItemRarities
             throw new InvalidOperationException($"Failed to get embedded resource '{resourceName}'.");
         }
 
+        #region Rarity Methods
         public static Rarity GetRarity(string itemName)
         {
             if (itemName.StartsWith("GEAR_"))
@@ -151,7 +154,9 @@ namespace ItemRarities
             float t = Settings.Instance.ColorblindnessStrength / 10f;
             return Color.Lerp(originalColor, colorblindColor, t);
         }
+        #endregion
 
+        #region Colour Methods
         /// <summary>
         /// Retrieves the original color associated with a specific item rarity.
         /// </summary>
@@ -196,14 +201,15 @@ namespace ItemRarities
                 return defaultColor;
             }
         }
+        #endregion
 
+        #region Localization Methods
         /// <summary>
         /// Loads the localization data from the embedded resource into the application.
         /// </summary>
         public static void LoadLocalizations()
         {
             var JSONfile = "ItemRarities.Data.LocalizationData.json";
-            string results;
 
             using Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(JSONfile);
             if (stream == null)
@@ -213,34 +219,56 @@ namespace ItemRarities
             }
 
             using StreamReader reader = new(stream);
-            results = reader.ReadToEnd();
+            string results = reader.ReadToEnd();
 
-            var deserializedData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(results);
-            LocalizationData = deserializedData ?? new();
+            if (string.IsNullOrEmpty(results))
+            {
+                Logger.LogError("Loaded JSON content is empty.");
+                return;
+            }
+
+            LocalizationManager.LoadJsonLocalization(results);
+
+            try
+            {
+                var jsonData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(results);
+                if (jsonData != null)
+                {
+                    LocalizationData = jsonData;
+                }
+            }
+            catch (JsonException ex)
+            {
+                Logger.LogError($"Failed to parse localization JSON. Error: {ex.Message}");
+            }
         }
 
         /// <summary>
         /// Retrieves the localized string for a given rarity based on the selected language.
         /// </summary>
-        /// <param name="rarity">The rarity of the item.</param>
+        /// <param name="key">The key for the item rarity.</param>
         /// <param name="language">The desired language for the localization. Defaults to "English".</param>
-        public static string GetLocalizedRarity(string rarity, string language = "English")
+        public static string GetTranslation(string key, string language = "English")
         {
-            if (LocalizationData.TryGetValue(rarity, out var languageData))
+            if (LocalizationData.TryGetValue(key, out var languageData))
             {
                 if (languageData.TryGetValue(language, out var localizedString) && !string.IsNullOrEmpty(localizedString))
                 {
                     return localizedString;
                 }
-
-                if (languageData.TryGetValue("English", out var defaultEnglishString))
+                else
                 {
-                    return defaultEnglishString;
+                    Logger.LogWarning($"No translation found for {key} in {language}.");
                 }
             }
+            else
+            {
+                Logger.LogError($"Key '{key}' not found in localizations.");
+            }
 
-            return rarity;
+            return "No Translation Found";
         }
+        #endregion
     }
 }
 

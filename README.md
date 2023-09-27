@@ -44,6 +44,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 ## CONTRIBUTIONS:
 
 - [**Elderly-Emre**](https://github.com/Elderly-Emre) - For providing Turkish translations.
+- [**LettereUniche**](https://github.com/LettereUniche) - For providing Italian translations.
 
 ---
 

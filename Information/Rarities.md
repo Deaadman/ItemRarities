@@ -11,13 +11,11 @@ When no rarity value is specified for an item in the game, the item will default
 
 | Colour | Name | Example |
 |----------|----------|----------|
-| #9DA1A4 | Common | Jeans |
-| #4FA528 | Uncommon | Cotton Toque |
-| #54B0FD | Rare | Balaclava |
-| #9C4BC1 | Epic | Combat Pants |
-| #FB9B34 | Legendary | Ballistic Vest |
-| #EDC643 | Mythic | Bearskin Coat |
+| #9EA3A9 | Common | Jeans |
+| #53AB01 | Uncommon | Cotton Toque |
+| #0097DE | Rare | Balaclava |
+| #B147E5 | Epic | Combat Pants |
+| #E58437 | Legendary | Ballistic Vest |
+| #D1B450 | Mythic | Bearskin Coat |
 |  |  |  |
-|  |  |  |
-|  |  |  |
-| #47BCB3 | Story | Bear Spear |
+| #49DCC0 | Story | Bear Spear |

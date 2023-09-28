@@ -51,9 +51,14 @@ namespace ItemRarities
 
         static void Postfix(Panel_Inventory_Examine __instance)
         {
+            if (!__instance.enabled) return;
+
             if (__instance.m_Item_Label == null) return;
 
-            string itemName = __instance.m_GearItem.name;
+            GearItem gi = __instance.m_GearItem;
+            if (gi == null) return;
+
+            string itemName = gi.name;
             Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetRarityColor(itemRarity);
 
@@ -125,10 +130,17 @@ namespace ItemRarities
 
         static void Postfix(Panel_Crafting __instance)
         {
+            if (!__instance.enabled) return;
+
             if (__instance.m_SelectedName == null) return;
 
             int selectedIndex = __instance.m_CurrentBlueprintIndex;
-            string itemName = __instance.m_FilteredBlueprints[selectedIndex]?.m_CraftedResult?.name ?? "Unknown";
+
+            // Always instantaite all GearItems and check for null
+            GearItem gi = __instance.m_FilteredBlueprints[selectedIndex].m_CraftedResult;
+            if (gi == null) return;
+
+            string itemName = gi.name ?? "Unknown";
 
             Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetRarityColor(itemRarity);
@@ -161,9 +173,14 @@ namespace ItemRarities
 
         static void Postfix(Panel_Cooking __instance, ref CookableItem __result)
         {
+            if (!__instance.enabled) return;
             if (__instance.m_Label_CookedItemName == null) return;
 
-            if (__result == null || __result.m_GearItem == null)
+            // Always instantaite all GearItems and check for null
+            GearItem gi = __result.m_GearItem;
+            if (gi == null) return;
+
+            if (__result == null || gi == null)
             {
                 if (rarityLabel != null)
                 {
@@ -172,7 +189,7 @@ namespace ItemRarities
                 return;
             }
 
-            string itemName = __result.m_GearItem.name;
+            string itemName = gi.name;
             Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetRarityColor(itemRarity);
 
@@ -207,6 +224,7 @@ namespace ItemRarities
 
         static void Postfix(Panel_Milling __instance, ref GearItem __result)
         {
+            if (!__instance.enabled) return;
             if (__instance.m_NameLabel == null) return;
 
             string itemName = __result.name;
@@ -264,6 +282,7 @@ namespace ItemRarities
         };
         static void Postfix(Panel_ActionsRadial __instance, RadialMenuArm arm)
         {
+            if (!__instance.enabled) return;
             if (__instance.m_SegmentLabel == null) return;
 
             if (rarityLabel == null)
@@ -278,9 +297,13 @@ namespace ItemRarities
                 rarityLabel.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
             }
 
-            if (arm != null && arm.m_GearItem != null)
+            // Always instantaite all GearItems and check for null
+            GearItem gi = arm.m_GearItem;
+            if (gi == null) return;
+
+            if (arm != null && gi != null && gi.name != "None")
             {
-                string itemName = arm.m_GearItem.name;
+                string itemName = gi.name;
                 Rarity itemRarity = GetRarity(itemName);
                 Color rarityColor = GetRarityColor(itemRarity);
 
@@ -306,17 +329,22 @@ namespace ItemRarities
     {
         public static void Postfix(Panel_ActionsRadial __instance)
         {
-            UILabel? label = PanelActionsRadial_RarityLabelPatch.RarityLabel;
+            if (!__instance.enabled) return;
+
+            UILabel? label = RarityLabel;
 
             bool isHoveredOverAnyItem = false;
 
-            foreach (var arm in __instance.m_RadialArms)
+            for (int i = 0; i < __instance.m_RadialArms.Count; i++)
             {
-                if (arm != null && arm.IsHoveredOver() && !arm.IsEmpty())
+                if (__instance.m_RadialArms[i] != null && __instance.m_RadialArms[i].IsHoveredOver() && !__instance.m_RadialArms[i].IsEmpty())
                 {
                     isHoveredOverAnyItem = true;
 
-                    string itemName = arm.m_GearItem.name;
+                    GearItem gi = __instance.m_RadialArms[i].m_GearItem;
+                    if (gi == null) continue;
+
+                    string itemName = gi.name;
                     Rarity itemRarity = GetRarity(itemName);
 
                     if (itemRarity == Rarity.None)

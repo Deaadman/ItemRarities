@@ -254,32 +254,6 @@ namespace ItemRarities
     [HarmonyPatch(typeof(Panel_ActionsRadial), nameof(Panel_ActionsRadial.GetActionText))]
     public static class PanelActionsRadial_RarityLabelPatch
     {
-        private static UILabel? rarityLabel;
-        public static UILabel? RarityLabel
-        {
-            get { return rarityLabel; }
-            set { rarityLabel = value; }
-        }
-
-        private static readonly HashSet<string> excludedNames = new()
-        {
-            "PACKSETTINGS_Pilgrim",
-            "NAVIGATION",
-            "CAMPCRAFT",
-            "FIRST AID",
-            "DRINK",
-            "LIGHT SOURCES",
-            "FOOD",
-            "WEAPONS",
-            "DROP DECOY",
-            "OPEN MAP",
-            "ROCK CACHE",
-            "STATUS",
-            "FIRE",
-            "PASS TIME",
-            "ICE FISHING HOLE",
-            "SNOW SHELTER"
-        };
         static void Postfix(Panel_ActionsRadial __instance, RadialMenuArm arm)
         {
             if (!__instance.enabled) return;

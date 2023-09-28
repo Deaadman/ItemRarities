@@ -68,8 +68,8 @@ namespace ItemRarities
 
         public override void OnInitializeMelon()
         {
-            string json = GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
-            var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json);
+            GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
+            var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(VanillaRaritiesData);
 
             if (rarityData == null)
             {
@@ -209,9 +209,9 @@ namespace ItemRarities
         /// </summary>
         public static void LoadLocalizations()
         {
-            var JSONfile = "ItemRarities.Data.LocalizationData.json";
+            string JSONfile = "ItemRarities.Data.LocalizationData.json";
 
-            using Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(JSONfile);
+            using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(JSONfile);
             if (stream == null)
             {
                 Logger.LogError($"Failed to load resource '{JSONfile}'.");

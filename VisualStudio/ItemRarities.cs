@@ -101,18 +101,18 @@ namespace ItemRarities
         /// </summary>
         /// <param name="resourceName">The name of the embedded resource to fetch.</param>
         /// <exception cref="InvalidOperationException">Thrown when the specified embedded resource is not found.</exception>
-        public static string GetEmbeddedResource(string resourceName)
+        public static void GetEmbeddedResource(string resourceName)
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetExecutingAssembly();
 
-            using var stream = assembly.GetManifestResourceStream(resourceName);
-            if (stream is not null)
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)!)
             {
-                using var reader = new StreamReader(stream);
-                return reader.ReadToEnd();
-            }
+                using StreamReader reader = new StreamReader(stream);
+                VanillaRaritiesData = reader.ReadToEnd();
 
-            throw new InvalidOperationException($"Failed to get embedded resource '{resourceName}'.");
+                stream.Dispose();
+                reader.Dispose();
+            }
         }
 
         #region Rarity Methods

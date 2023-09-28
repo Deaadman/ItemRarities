@@ -353,7 +353,7 @@ namespace ItemRarities
         }
         static void Postfix(PlayerManager __instance)
         {
-            Panel_HUD? actualHUDPanel = __instance.m_HUD.GetPanel();
+            Panel_HUD? actualHUDPanel = InterfaceManager.GetPanel<Panel_HUD>();
             if (actualHUDPanel == null || actualHUDPanel.m_InspectMode_Title == null) return;
 
             GearItem? currentGearItem = __instance.m_Gear;

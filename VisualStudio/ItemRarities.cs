@@ -6,7 +6,34 @@ namespace ItemRarities
     public class Main : MelonMod
     {
         public static Dictionary<string, Dictionary<string, string>> LocalizationData { get; private set; } = new();
-        public static readonly Dictionary<string, Rarity> gearRarities = new(StringComparer.OrdinalIgnoreCase);
+        public static Dictionary<string, Rarity> gearRarities { get; } = new(StringComparer.InvariantCultureIgnoreCase);
+        internal static string VanillaRaritiesData { get; set; }
+        internal static UILabel? rarityLabel { get; set; }
+        internal static UILabel? RarityLabel
+        {
+            get { return rarityLabel; }
+            set { rarityLabel = value; }
+        }
+
+        internal static HashSet<string> excludedNames { get; } = new()
+        {
+            "PACKSETTINGS_Pilgrim",
+            "NAVIGATION",
+            "CAMPCRAFT",
+            "FIRST AID",
+            "DRINK",
+            "LIGHT SOURCES",
+            "FOOD",
+            "WEAPONS",
+            "DROP DECOY",
+            "OPEN MAP",
+            "ROCK CACHE",
+            "STATUS",
+            "FIRE",
+            "PASS TIME",
+            "ICE FISHING HOLE",
+            "SNOW SHELTER"
+        };
 
         #region Colourblind Dictionary Hex Codes
         private static readonly Dictionary<ColorblindMode, Dictionary<Rarity, string>> colorMappings = new()

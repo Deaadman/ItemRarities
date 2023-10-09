@@ -3,7 +3,7 @@ description: Report an issue which you are experiencing with this mod installed.
 title: "[Bug Report]: "
 labels: [bug-report]
 body:
-- type: markdown
+  - type: markdown
     attributes:
       value: |
         Thank you for reporting a bug. Not only will this help you, it will also help others!

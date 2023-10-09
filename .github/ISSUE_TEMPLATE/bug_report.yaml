@@ -1,9 +1,4 @@
-name: Bug Report
-description: Report an issue which you are experiencing with this mod installed.
-title: "[Bug Report]: "
-labels: [bug-report]
-body:
-  - type: markdown
+- type: markdown
     attributes:
       value: |
         Thank you for reporting a bug. Not only will this help you, it will also help others!
@@ -23,7 +18,7 @@ body:
       placeholder: e.g., v1.0.0
     validations:
       required: true
-    - type: textarea
+  - type: textarea
     id: other_mods_installed
     attributes:
       label: Other Mods Installed

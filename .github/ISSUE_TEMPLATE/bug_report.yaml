@@ -50,17 +50,17 @@ body:
     validations:
       required: false
   - type: markdown
-  attributes:
-    value: |
-      If you can, please attach any relevant screenshots to help describe the issue.
-- type: input
-  id: screenshots
-  attributes:
-    label: Upload Screenshots
-    description: You can drag and drop your screenshots here or use the "Choose Files" button.
-    type: file
-  validations:
-    required: false
+    attributes:
+      value: |
+        If you can, please attach any relevant screenshots to help describe the issue.
+  - type: input
+    id: screenshots
+    attributes:
+      label: Upload Screenshots
+      description: You can drag and drop your screenshots here or use the "Choose Files" button.
+      type: file
+    validations:
+      required: false
   - type: markdown
     attributes:
       value: |

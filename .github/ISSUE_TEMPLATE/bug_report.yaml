@@ -23,17 +23,17 @@ body:
       placeholder: e.g., v1.0.0
     validations:
       required: true
-  - type: textarea
-  id: other_mods_installed
-  attributes:
-    label: Other Mods Installed
-    description: Please list any other mods you had installed at the time of the issue. This can help identify potential mod conflicts.
-    placeholder: |
-      1. ModName v1.0.0
-      2. AnotherMod v2.3.4
-      ...
-  validations:
-    required: false
+    - type: textarea
+    id: other_mods_installed
+    attributes:
+      label: Other Mods Installed
+      description: Please list any other mods you had installed at the time of the issue. This can help identify potential mod conflicts.
+      placeholder: |
+        1. ModName v1.0.0
+        2. AnotherMod v2.3.4
+        ...
+    validations:
+      required: false
   - type: textarea
     id: issue_description
     attributes:

@@ -8,6 +8,7 @@
 	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg?style=for-the-badge"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg?style=for-the-badge"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/issues"><img src="https://img.shields.io/github/issues/Deaadman/ItemRarities?style=for-the-badge"></a>
+	<img src="https://img.shields.io/badge/Translated-15.79%25-red?style=for-the-badge">
 
 ---
 
@@ -18,7 +19,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 ### Features
 -  **Rarity Classification:** Each item now has a distinct visual indicator which represents its rarity.
 -  **Enhanced Immersion**: Rarer items now feel like are they worth something once found.
--  **Supports Multiple Languages**: Currently supports English and Turkish.
+-  **Accessibility Options**: Supports multiple languages, and colorblindness.
 
 ---
 
@@ -43,8 +44,8 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 
 ## CONTRIBUTIONS:
 
-- [**Elderly-Emre**](https://github.com/Elderly-Emre) - For providing Turkish translations.
-- [**LettereUniche**](https://github.com/LettereUniche) - For providing Italian translations.
+- [**Elderly-Emre**](https://github.com/Elderly-Emre) - Turkish translations.
+- [**LettereUniche**](https://github.com/LettereUniche) - Italian translations.
 
 ---
 

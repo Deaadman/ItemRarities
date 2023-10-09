@@ -1,3 +1,8 @@
+name: Bug Report
+description: Report an issue which you are experiencing with this mod installed.
+title: "[Bug Report]: "
+labels: [bug-report]
+body:
 - type: markdown
     attributes:
       value: |

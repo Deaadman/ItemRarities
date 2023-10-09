@@ -60,10 +60,6 @@ body:
         Please drag and drop your latest Latest.Log here from your MelonLoader folder in your game's directory.
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: |
-        If you can, please attach any relevant screenshots to help describe the issue.
   - type: textarea
     id: screenshots
     attributes:

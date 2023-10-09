@@ -53,12 +53,11 @@ body:
     attributes:
       value: |
         If you can, please attach any relevant screenshots to help describe the issue.
-  - type: input
-    id: screenshots
+  - type: textarea
+    id: screenshots=
     attributes:
-      label: Upload Screenshots
-      description: You can drag and drop your screenshots here or use the "Choose Files" button.
-      type: file
+      label: Screenshots
+      description: Upload your screenshots here, as it will help visualise the issue.
     validations:
       required: false
   - type: markdown

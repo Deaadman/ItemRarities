@@ -42,13 +42,13 @@ body:
     validations:
       required: true
   - type: textarea
-    id: logs
+    id: log_output
     attributes:
-      label: Latest.Log Report
+      label: Log Output
       description: |
         Please drag and drop your latest Latest.Log here from your MelonLoader folder in your game's directory.
     validations:
-      required: false
+      required: true
   - type: markdown
     attributes:
       value: |

@@ -1,0 +1,41 @@
+name: General Mod Issue
+description: Report an issue not necessarily related to mod compatibility
+title: "[Mod Issue]: "
+labels: [mod-issue]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a general mod issue. Please fill out as much detail as possible.
+  - type: input
+    id: game_version
+    attributes:
+      label: The Long Dark Version
+      description: Please specify which version of The Long Dark you are using.
+      placeholder: e.g., v2.24
+    validations:
+      required: true
+  - type: input
+    id: mod_version
+    attributes:
+      label: Mod Version
+      description: Please specify the version of the mod you are using.
+      placeholder: e.g., v1.1.1
+    validations:
+      required: true
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: Describe the Issue
+      description: Please describe the problem in detail.
+      placeholder: Describe what happened and what you expected...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: |
+        Please provide any relevant log details here. If possible, use a service like [Pastebin](https://pastebin.com/) and provide the link.
+    validations:
+      required: false

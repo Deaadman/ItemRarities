@@ -54,7 +54,7 @@ body:
       value: |
         If you can, please attach any relevant screenshots to help describe the issue.
   - type: textarea
-    id: screenshots=
+    id: screenshots
     attributes:
       label: Screenshots
       description: Upload your screenshots here, as it will help visualise the issue.

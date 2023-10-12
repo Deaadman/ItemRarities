@@ -6,7 +6,34 @@ namespace ItemRarities
     public class Main : MelonMod
     {
         public static Dictionary<string, Dictionary<string, string>> LocalizationData { get; private set; } = new();
-        public static readonly Dictionary<string, Rarity> gearRarities = new(StringComparer.OrdinalIgnoreCase);
+        public static Dictionary<string, Rarity> gearRarities { get; } = new(StringComparer.InvariantCultureIgnoreCase);
+        internal static string VanillaRaritiesData { get; set; }
+        internal static UILabel? rarityLabel { get; set; }
+        internal static UILabel? RarityLabel
+        {
+            get { return rarityLabel; }
+            set { rarityLabel = value; }
+        }
+
+        internal static HashSet<string> excludedNames { get; } = new()
+        {
+            "PACKSETTINGS_Pilgrim",
+            "NAVIGATION",
+            "CAMPCRAFT",
+            "FIRST AID",
+            "DRINK",
+            "LIGHT SOURCES",
+            "FOOD",
+            "WEAPONS",
+            "DROP DECOY",
+            "OPEN MAP",
+            "ROCK CACHE",
+            "STATUS",
+            "FIRE",
+            "PASS TIME",
+            "ICE FISHING HOLE",
+            "SNOW SHELTER"
+        };
 
         #region Colourblind Dictionary Hex Codes
         private static readonly Dictionary<ColorblindMode, Dictionary<Rarity, string>> colorMappings = new()
@@ -68,8 +95,8 @@ namespace ItemRarities
 
         public override void OnInitializeMelon()
         {
-            string json = GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
-            var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json);
+            GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
+            var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(VanillaRaritiesData);
 
             if (rarityData == null)
             {
@@ -101,18 +128,18 @@ namespace ItemRarities
         /// </summary>
         /// <param name="resourceName">The name of the embedded resource to fetch.</param>
         /// <exception cref="InvalidOperationException">Thrown when the specified embedded resource is not found.</exception>
-        public static string GetEmbeddedResource(string resourceName)
+        public static void GetEmbeddedResource(string resourceName)
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetExecutingAssembly();
 
-            using var stream = assembly.GetManifestResourceStream(resourceName);
-            if (stream is not null)
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)!)
             {
-                using var reader = new StreamReader(stream);
-                return reader.ReadToEnd();
-            }
+                using StreamReader reader = new StreamReader(stream);
+                VanillaRaritiesData = reader.ReadToEnd();
 
-            throw new InvalidOperationException($"Failed to get embedded resource '{resourceName}'.");
+                stream.Dispose();
+                reader.Dispose();
+            }
         }
 
         #region Rarity Methods
@@ -209,9 +236,9 @@ namespace ItemRarities
         /// </summary>
         public static void LoadLocalizations()
         {
-            var JSONfile = "ItemRarities.Data.LocalizationData.json";
+            string JSONfile = "ItemRarities.Data.LocalizationData.json";
 
-            using Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(JSONfile);
+            using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(JSONfile);
             if (stream == null)
             {
                 Logger.LogError($"Failed to load resource '{JSONfile}'.");

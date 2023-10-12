@@ -8,7 +8,7 @@
 [assembly: AssemblyTrademark(BuildInfo.Trademark)]
 [assembly: AssemblyCulture(BuildInfo.Culture)]
 
-[assembly: AssemblyVersion(BuildInfo.Version)]
+[assembly: AssemblyInformationalVersion(BuildInfo.Version)]
 [assembly: AssemblyFileVersion(BuildInfo.Version)]
 
 [assembly: MelonInfo(typeof(ItemRarities.Main), BuildInfo.GUIName, BuildInfo.Version, BuildInfo.Author, BuildInfo.DownloadLink)]

@@ -308,11 +308,16 @@ namespace ItemRarities
         {
             UILabel? label = PanelActionsRadial_RarityLabelPatch.RarityLabel;
 
+            if (label == null || __instance.m_RadialArms == null)
+            {
+                return;
+            }
+
             bool isHoveredOverAnyItem = false;
 
             foreach (var arm in __instance.m_RadialArms)
             {
-                if (arm != null && arm.IsHoveredOver() && !arm.IsEmpty())
+                if (arm != null && arm.IsHoveredOver() && !arm.IsEmpty() && arm.m_GearItem != null)
                 {
                     isHoveredOverAnyItem = true;
 
@@ -321,7 +326,7 @@ namespace ItemRarities
 
                     if (itemRarity == Rarity.None)
                     {
-                        label?.gameObject.SetActive(false);
+                        label.gameObject.SetActive(false);
                         return;
                     }
 
@@ -329,7 +334,7 @@ namespace ItemRarities
                 }
             }
 
-            if (label != null && !isHoveredOverAnyItem)
+            if (!isHoveredOverAnyItem)
             {
                 label.gameObject.SetActive(false);
             }

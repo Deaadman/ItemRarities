@@ -95,6 +95,8 @@ namespace ItemRarities
 
         public override void OnInitializeMelon()
         {
+            Logger.LogStarter();
+
             GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
             var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(VanillaRaritiesData);
 
@@ -190,8 +192,16 @@ namespace ItemRarities
         /// <param name="rarity">The rarity of the item.</param>
         private static Color GetOriginalColor(Rarity rarity)
         {
-            string hexColor = colorMappings[ColorblindMode.None][rarity];
-            return GetColor(hexColor, Color.white);
+            if (colorMappings.TryGetValue(ColorblindMode.None, out var rarityMappings) &&
+                rarityMappings.TryGetValue(rarity, out var hexColor))
+            {
+                return GetColor(hexColor, Color.white);
+            }
+            else
+            {
+                Logger.LogWarning($"No color mapping found for rarity: {rarity}. Using default color.");
+                return Color.white;
+            }
         }
 
         /// <summary>

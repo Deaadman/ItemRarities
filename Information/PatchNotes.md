@@ -10,9 +10,10 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [vX.X.X](#vxxx) |
-| [v1.1.1](#v111---the-accessibility-update) |
-| [v1.1.0](#v110---the-accessibility-update) |
-| [v1.0.0](#v100---initial-launch) |
+| [v1.1.2](#v112) |
+| [v1.1.1](#v111) |
+| [v1.1.0 - The Accessibility Update](#v110---the-accessibility-update) |
+| [v1.0.0 - Initial Launch](#v100---initial-launch) |
 
 ---
 
@@ -35,20 +36,50 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 		- For example, a pulsating glow for mythic items - or the label displaying on the screen once found.
 	- When an item is hovered, display a visual for the rarity type before inspecting or picking up.
 		- Can either do this through an icon or the label itself. Suggested by **RossBondReturns**
-- Modification Optimization
+- Modification Rewrite (v2.0.0)
 	- Switch from a duplicated `UILabel` system to a standalone `UILabel` system.
 		- This allows for easier implementation amongst other harmony patches.
 		- Allows for values of the `UILabel` to be changed in one place, which updates across all.
 		- May improve performance and eliminate any incompatibilities.
+		- Will help the mod be future-proof to all upcoming updates.
 	- Switch to an automatic rarity-based system. Suggested by [**Digitalzombie**](https://github.com/DigitalzombieTLD/)
 		- Will be less time consuming, and will support all external modifications automatically. 
 		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
-		- Getting values for each item may also be another possibility.
-	- Complete re-write of the mod (v2.0.0)?
+		- Creating methods which get values for specific items like clothing, food may be a possibility.
 
 ---
 
-## v1.1.1 - The Accessibility Update:
+## v1.1.2:
+
+> Released on the **12th of October 2023**.
+
+### Highlights / Key Changes:
+- Merged pull request [**#4**](https://github.com/Deaadman/ItemRarities/pull/4), potentially fixing many issues, specifically issue [**#7**](https://github.com/Deaadman/ItemRarities/issues/7).
+- Updated for The Long Dark v2.24.
+
+### Added:
+- Added additional `null` checks to the `PanelActionsRadial` harmony patch.
+- Added `Logger.LogStarter();` method to the `OnInitializeMelon();` method.
+
+### Changed / Updated:
+- Changed the `AssemblyVersion` to `AssemblyInformationalVersion` within the `AssemblyInfo.cs` file, this switches the versioning to utilize [Semantic Versioning](https://semver.org/) patterns.
+- Changed the `__instance.m_HUD.GetPanel();` to `InterfaceManager.GetPanel<Panel_HUD>();` as it's a more direct approach.
+- Changed the location of the `HashSet` from the `Panel_ActionsRadial` patch to the `ItemRarities.cs` file.
+<br></br>
+- Updated multiple patches to always instantiate `GearItems` first then immediately check if they are null. Helps reduce issues and unexpected behaviours.
+- Updated the `EmbeddedResourceLoad` behaviour to dispose of the resource once done.
+- Updated the `GetOriginalColor();` method to handle if no value is retrieved from the dictionary.
+- Updated the text within the `Logger.LogStarter();` method.
+
+### Fixed:
+- Potentially fixed the issue `'None' key not present within the dictionary` - Issue [**#7**](https://github.com/Deaadman/ItemRarities/issues/7).
+
+### Acknowledgements:
+- [**The Illusion**](https://github.com/Arkhorse) - For opening pull request [**#4**](https://github.com/Deaadman/ItemRarities/pull/4) and fixing many issues.
+
+---
+
+## v1.1.1:
 
 > Released on the **27th of September 2023**.
 

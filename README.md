@@ -16,7 +16,7 @@
 
 Item Rarities is a modification that enhances the existing UI by adding visual elements to display the rarity of certain items in [**The Long Dark**](https://www.hinterlandgames.com/the-long-dark/), without impacting the core gameplay.
 
-### Features
+### Features:
 -  **Rarity Classification:** Each item now has a distinct visual indicator which represents its rarity.
 -  **Enhanced Immersion**: Rarer items now feel like are they worth something once found.
 -  **Accessibility Options**: Supports multiple languages, and colorblindness.
@@ -44,8 +44,12 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 
 ## CONTRIBUTIONS:
 
-- [**Elderly-Emre**](https://github.com/Elderly-Emre) - Turkish translations.
-- [**LettereUniche**](https://github.com/LettereUniche) - Italian translations.
+### Translations:
+- [**Elderly-Emre**](https://github.com/Elderly-Emre) - Turkish Translations.
+- [**LettereUniche**](https://github.com/LettereUniche) - Italian Translations.
+
+### Programming:
+- [**The Illusion**](https://github.com/Arkhorse) - Pull Request [**#4**](https://github.com/Deaadman/ItemRarities/pull/4) - In Update [**v1.1.2**](https://github.com/Deaadman/ItemRarities/blob/release/Information/PatchNotes.md#v112).
 
 ---
 

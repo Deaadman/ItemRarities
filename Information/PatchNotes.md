@@ -21,6 +21,11 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 
 >**Note:** A bundle of ideas, with no guarantee of implementation.
 
+- JSON Enhancements
+	- Don't embed the `.json` files.
+		- Doing this allows for fancier `.json` code.
+		- Or switch to asynchronous loading for the `.json`'s.
+	- Overall, should allow for quicker loading - and less errors. Suggested by [**The Illusion**](https://github.com/Arkhorse).
 - Compatibility
 	- Support for other modifications which have custom items.
 		- Create separate `.json`'s for each external mod and set rarities.
@@ -34,15 +39,15 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 - Visual Enhancements
 	- Introduce different visual effects or glows for different rarity levels.
 		- For example, a pulsating glow for mythic items - or the label displaying on the screen once found.
-	- When an item is hovered, display a visual for the rarity type before inspecting or picking up.
-		- Can either do this through an icon or the label itself. Suggested by **RossBondReturns**
+	- When an item is hovered over on the ground, display a visual for the rarity type before inspecting or picking up.
+		- Can either do this through an icon or the label itself. Suggested by **RossBondReturns**.
 - Modification Rewrite (v2.0.0)
-	- Switch from a duplicated `UILabel` system to a standalone `UILabel` system.
+	- Switch from a instanced `UILabel` system to a standalone `UILabel` system.
 		- This allows for easier implementation amongst other harmony patches.
 		- Allows for values of the `UILabel` to be changed in one place, which updates across all.
 		- May improve performance and eliminate any incompatibilities.
 		- Will help the mod be future-proof to all upcoming updates.
-	- Switch to an automatic rarity-based system. Suggested by [**Digitalzombie**](https://github.com/DigitalzombieTLD/)
+	- Switch to an automatic rarity-based system. Suggested by [**Digitalzombie**](https://github.com/DigitalzombieTLD/).
 		- Will be less time consuming, and will support all external modifications automatically. 
 		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
 		- Creating methods which get values for specific items like clothing, food may be a possibility.

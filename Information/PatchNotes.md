@@ -10,6 +10,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [vX.X.X](#vxxx) |
+| [v1.1.3](#v113) |
 | [v1.1.2](#v112) |
 | [v1.1.1](#v111) |
 | [v1.1.0 - The Accessibility Update](#v110---the-accessibility-update) |
@@ -51,6 +52,24 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 		- Will be less time consuming, and will support all external modifications automatically. 
 		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
 		- Creating methods which get values for specific items like clothing, food may be a possibility.
+
+---
+
+## v1.1.3:
+
+> Released on the **26th of October 2023**.
+
+### Highlights / Key Changes:
+- Fixed the `No Translation Found` label issue if no translation was found.
+
+### Changed / Updated:
+- Changed the `return "No Translation Found";` to `return null;` in the `GetTranslation()` method.
+
+### Fixed:
+- Fixed the `No Translation Found` label - Issue [**#8**](https://github.com/Deaadman/ItemRarities/issues/8).
+
+### Removed:
+- Removed `Logger.LogStarter()` from the `OnInitializeMelon()` method.
 
 ---
 

@@ -7,6 +7,9 @@
     <a href="https://github.com/Deaadman/ItemRarities/releases/latest"><img src="https://img.shields.io/github/v/release/Deaadman/ItemRarities?label=latest&style=for-the-badge"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/downloads/Deaadman/ItemRarities/total.svg?style=for-the-badge"></a>
 	<a href="https://github.com/Deaadman/ItemRarities/releases"><img src="https://img.shields.io/github/downloads/Deaadman/ItemRarities/latest/total.svg?style=for-the-badge"></a>
+	
+
+<p align="center">
 	<a href="https://github.com/Deaadman/ItemRarities/issues"><img src="https://img.shields.io/github/issues/Deaadman/ItemRarities?style=for-the-badge"></a>
 	<img src="https://img.shields.io/badge/Translated-15.79%25-red?style=for-the-badge">
 

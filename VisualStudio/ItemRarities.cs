@@ -95,8 +95,6 @@ namespace ItemRarities
 
         public override void OnInitializeMelon()
         {
-            Logger.LogStarter();
-
             GetEmbeddedResource("ItemRarities.Data.VanillaRarities.json");
             var rarityData = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(VanillaRaritiesData);
 
@@ -303,7 +301,7 @@ namespace ItemRarities
                 Logger.LogError($"Key '{key}' not found in localizations.");
             }
 
-            return "No Translation Found";
+            return null;
         }
         #endregion
     }

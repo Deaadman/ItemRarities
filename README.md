@@ -11,7 +11,7 @@
 
 <p align="center">
 	<a href="https://github.com/Deaadman/ItemRarities/issues"><img src="https://img.shields.io/github/issues/Deaadman/ItemRarities?style=for-the-badge"></a>
-	<img src="https://img.shields.io/badge/Translated-15.79%25-red?style=for-the-badge">
+	<img src="https://img.shields.io/badge/Translated-21.05%25-red?style=for-the-badge">
 
 ---
 
@@ -50,6 +50,7 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 ### Translations:
 - [**Elderly-Emre**](https://github.com/Elderly-Emre) - Turkish Translations.
 - [**LettereUniche**](https://github.com/LettereUniche) - Italian Translations.
+- [**deepsnowland**](https://github.com/deepsnowland) - Japanese Translations.
 
 ### Programming:
 - [**The Illusion**](https://github.com/Arkhorse) - Pull Request [**#4**](https://github.com/Deaadman/ItemRarities/pull/4) - In Update [**v1.1.2**](https://github.com/Deaadman/ItemRarities/blob/release/Information/PatchNotes.md#v112).

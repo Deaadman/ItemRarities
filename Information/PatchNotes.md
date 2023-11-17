@@ -10,6 +10,7 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 | Versions: |
 | - |
 | [vX.X.X](#vxxx) |
+| [v1.1.4](#v114) |
 | [v1.1.3](#v113) |
 | [v1.1.2](#v112) |
 | [v1.1.1](#v111) |
@@ -52,6 +53,25 @@ So please note that the upcoming ideas provided within these patch notes isn't f
 		- Will be less time consuming, and will support all external modifications automatically. 
 		- Could do this through spawn rates of each item in certain regions using the `GearSpawner` mod. 
 		- Creating methods which get values for specific items like clothing, food may be a possibility.
+
+---
+
+## v1.1.4:
+
+> Released on the **17th of November 2023**.
+
+### Highlights / Key Changes:
+- Now supports Japanese! Thanks to [**deepsnowland**](https://github.com/deepsnowland) for providing translations.
+- Fixed the Rarity UI Label duplication issue between the clothing menu and inventory.
+
+### Changed / Updated:
+- Updated some of the localization methods.
+
+### Fixed:
+- Fixed the `ItemDescriptionPage UILabel cloning on Clothing Panel` bug - Issue [**#9**](https://github.com/Deaadman/ItemRarities/issues/9).
+
+### Removed:
+- Removed some extra logging to prevent confusion in the console.
 
 ---
 

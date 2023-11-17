@@ -5,9 +5,9 @@ namespace ItemRarities
 {
     public class Main : MelonMod
     {
-        public static Dictionary<string, Dictionary<string, string>> LocalizationData { get; private set; } = new();
+        public static Dictionary<string, Dictionary<string, string>> LocalizationData { get; private set; } = [];
         public static Dictionary<string, Rarity> gearRarities { get; } = new(StringComparer.InvariantCultureIgnoreCase);
-        internal static string VanillaRaritiesData { get; set; }
+        internal static string? VanillaRaritiesData { get; set; }
         internal static UILabel? rarityLabel { get; set; }
         internal static UILabel? RarityLabel
         {
@@ -15,8 +15,8 @@ namespace ItemRarities
             set { rarityLabel = value; }
         }
 
-        internal static HashSet<string> excludedNames { get; } = new()
-        {
+        internal static HashSet<string> excludedNames { get; } =
+        [
             "PACKSETTINGS_Pilgrim",
             "NAVIGATION",
             "CAMPCRAFT",
@@ -33,7 +33,7 @@ namespace ItemRarities
             "PASS TIME",
             "ICE FISHING HOLE",
             "SNOW SHELTER"
-        };
+        ];
 
         #region Colourblind Dictionary Hex Codes
         private static readonly Dictionary<ColorblindMode, Dictionary<Rarity, string>> colorMappings = new()
@@ -130,16 +130,14 @@ namespace ItemRarities
         /// <exception cref="InvalidOperationException">Thrown when the specified embedded resource is not found.</exception>
         public static void GetEmbeddedResource(string resourceName)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            _ = Assembly.GetExecutingAssembly();
 
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)!)
-            {
-                using StreamReader reader = new StreamReader(stream);
-                VanillaRaritiesData = reader.ReadToEnd();
+            using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)!;
+            using StreamReader reader = new(stream);
+            VanillaRaritiesData = reader.ReadToEnd();
 
-                stream.Dispose();
-                reader.Dispose();
-            }
+            stream.Dispose();
+            reader.Dispose();
         }
 
         #region Rarity Methods
@@ -197,7 +195,6 @@ namespace ItemRarities
             }
             else
             {
-                Logger.LogWarning($"No color mapping found for rarity: {rarity}. Using default color.");
                 return Color.white;
             }
         }
@@ -212,7 +209,6 @@ namespace ItemRarities
 
             if (!colorMappings[currentMode].TryGetValue(rarity, out var hexColor) || hexColor == null)
             {
-                Logger.LogError("Unrecognized rarity type encountered.");
                 hexColor = "#FFFFFF";
             }
             return GetColor(hexColor, Color.white);
@@ -283,7 +279,7 @@ namespace ItemRarities
         /// </summary>
         /// <param name="key">The key for the item rarity.</param>
         /// <param name="language">The desired language for the localization. Defaults to "English".</param>
-        public static string GetTranslation(string key, string language = "English")
+        public static string? GetTranslation(string key, string language = "English")
         {
             if (LocalizationData.TryGetValue(key, out var languageData))
             {
@@ -291,16 +287,11 @@ namespace ItemRarities
                 {
                     return localizedString;
                 }
-                else
+                if (language != "English" && languageData.TryGetValue("English", out localizedString) && !string.IsNullOrEmpty(localizedString))
                 {
-                    Logger.LogWarning($"No translation found for {key} in {language}.");
+                    return localizedString;
                 }
             }
-            else
-            {
-                Logger.LogError($"Key '{key}' not found in localizations.");
-            }
-
             return null;
         }
         #endregion

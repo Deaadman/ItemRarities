@@ -17,8 +17,6 @@ namespace ItemRarities
 
         static void Postfix(ItemDescriptionPage __instance, GearItem gi)
         {
-            if (__instance.m_ItemNameLabel == null) return;
-
             string itemName = gi.name;
             Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetRarityColor(itemRarity);
@@ -94,8 +92,6 @@ namespace ItemRarities
 
         static void Postfix(Panel_Clothing __instance, ref GearItem __result)
         {
-            if (__instance.m_ItemDescriptionPage == null || __instance.m_ItemDescriptionPage.m_ItemNameLabel == null) return;
-
             string itemName = __result.name;
             Rarity itemRarity = GetRarity(itemName);
             Color rarityColor = GetRarityColor(itemRarity);

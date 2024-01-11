@@ -1,4 +1,3 @@
-using System.Text; // Used for commented out code, which is why it's grey atm.
 using System.Text.Json;
 
 namespace ItemRarities
@@ -299,49 +298,50 @@ namespace ItemRarities
 }
 
 // This code helps me understand the GEAR_ names with what Display Name for easier readability.
-/* public override void OnSceneWasInitialized(int buildIndex, string sceneName)
-{
-    ListGear();
-}
+//public override void OnSceneWasInitialized(int buildIndex, string sceneName)
+//{
+//    ListGearWithDisplayNames();
+//}
 
-/// <summary>
-/// Lists the gear names and their respective display names, logging them to the console and writing them to a file.
-/// </summary>
-private static void ListGear()
-{
-    SortedSet<string> sortedUniqueGear = new SortedSet<string>();
-    foreach (string gearName in ConsoleManager.m_SearchStringToGearNames.Values)
-    {
-        if (!gearName.StartsWith("GEAR_")) continue;
-        sortedUniqueGear.Add(gearName.Substring("GEAR_".Length));
-    }
+///// <summary>
+///// Lists the gear names and their respective display names, logging them to the console and writing them to a file.
+///// </summary>
+//private static void ListGearWithDisplayNames()
+//{
+//    SortedSet<string> sortedUniqueGear = [];
+//    foreach (string gearName in ConsoleManager.m_SearchStringToGearNames.Values)
+//    {
+//        if (!gearName.StartsWith("GEAR_")) continue;
+//        sortedUniqueGear.Add(gearName["GEAR_".Length..]);
+//    }
 
-    // Specifying the path to the output file -- it outputs to the My Documents folder.
-    string outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "GearItems.txt");
+//    string outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "GearItemsWithDisplayNames.txt");
 
-    StringBuilder logMessages = new StringBuilder();
-    foreach (string gearName in sortedUniqueGear)
-    {
-        // Using the GetGearDisplayName method to get the display name
-        string displayName = GearItem.GetGearDisplayName("GEAR_" + gearName);
+//    using var writer = new StreamWriter(outputPath);
+//    foreach (string gearName in sortedUniqueGear)
+//    {
+//        string displayName = GearItem.GetGearDisplayName("GEAR_" + gearName);
+//        string logMessage = $"Gear Name: {gearName}\nDisplay Name: {displayName}\n---\n";
 
-        // Constructing the log message with the desired format
-        string logMessage = $"Gear Name: {gearName} \\nDisplay Name: {displayName} \\n---\\n";
+//        Logger.Log(logMessage);
+//        writer.WriteLine(logMessage);
+//    }
+//}
 
-        // Logging to console
-        Logger.Log(logMessage);
+//private static void ListGear()
+//{
+//    SortedSet<string> sortedUniqueGear = [];
+//    foreach (string gearName in ConsoleManager.m_SearchStringToGearNames.Values)
+//    {
+//        if (!gearName.StartsWith("GEAR_")) continue;
+//        sortedUniqueGear.Add(gearName);
+//    }
 
-        // Adding log message to StringBuilder
-        logMessages.AppendLine(logMessage);
-    }
+//    string outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "GearItems.txt");
 
-    // Writing all log messages to file at once
-    try
-    {
-        File.WriteAllText(outputPath, logMessages.ToString());
-    }
-    catch (Exception ex)
-    {
-        Logger.LogError($"An error occurred while writing to the file: {ex.Message}");
-    }
-} */
+//    using var writer = new StreamWriter(outputPath);
+//    foreach (string gearName in sortedUniqueGear)
+//    {
+//        writer.WriteLine(gearName);
+//    }
+//}

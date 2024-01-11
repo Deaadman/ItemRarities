@@ -26,6 +26,21 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 
 ---
 
+## COMPATIBILITY:
+
+### Required Dependencies:
+For optimal functionality of this modification, ensure you have the following versions or newer for the latest version of **Universal Tweaks**:
+
+- [**The Long Dark**](https://store.steampowered.com/news/app/305620) - Version: **v2.26**  
+- [**MelonLoader**](https://github.com/LavaGang/MelonLoader/releases) - Version: **v0.6.1**   
+- [**Localization Utilities**](https://github.com/dommrogers/LocalizationUtilities/releases) - Version: **v2.0.0** 
+- [**Mod Settings**](https://github.com/DigitalzombieTLD/ModSettings) - Version: **v2.0.0** 
+
+> [!WARNING]
+> Avoid using MelonLoader v0.6.2 as ModSettings isn't compatible yet!
+
+---
+
 ## USEFUL LINKS:
 
 - [**Patch Notes**](https://github.com/Deaadman/ItemRarities/blob/release/Information/PatchNotes.md): Explore existing updates and stay informed about upcoming changes.
@@ -55,16 +70,5 @@ Item Rarities is a modification that enhances the existing UI by adding visual e
 ### Programming:
 - [**The Illusion**](https://github.com/Arkhorse) - Pull Request [**#4**](https://github.com/Deaadman/ItemRarities/pull/4) - In Update [**v1.1.2**](https://github.com/Deaadman/ItemRarities/blob/release/Information/PatchNotes.md#v112).
 
----
-
-## LICENSING:
-This modification is licensed under the **MIT License.**
-
-Under the MIT License you have the right to:
-
-- Use this mod for any purpose, whether it's personal or commercial.
-- Modify the mod to suit your needs, and those modifications can be kept private or shared with others.
-- Distribute this mod in its original or modified form, either for free or as part of a paid product, without imposing any additional restrictions.
-- The only requirement is that the original copyright and license information must be included when you distribute the mod.
-
->**Disclaimer:** This modification is not officially a part of The Long Dark and is not affiliated with Hinterland Studio Inc or its affiliates.
+> [!WARNING]
+> This modification is not officially a part of The Long Dark and is not affiliated with Hinterland Studio Inc or its affiliates.

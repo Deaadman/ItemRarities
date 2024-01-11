@@ -12,8 +12,8 @@
 
 	<PropertyGroup>
 		<!-- This should point to wherever your games primary EXE is -->
-		<TheLongDarkPath>F:\SteamLibrary\steamapps\common\TheLongDark</TheLongDarkPath>
-		<ReleaseFolderPath>D:\The Long Dark\Mods\Maintained\ItemRarities\Release</ReleaseFolderPath>
+		<TheLongDarkPath>C:\Program Files (x86)\Steam\steamapps\common\TheLongDark</TheLongDarkPath>
+		<ReleaseFolderPath>E:\The Long Dark\Mods\Maintained\ItemRarities\Release</ReleaseFolderPath>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -27,7 +27,7 @@
 
 	<!-- List of used references -->
 	<ItemGroup>
-		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.23.0" />
+		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.25.0" />
 		<PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
 		<PackageReference Include="STBlade.Modding.TLD.LocalizationUtilities" Version="2.0.0" />
 	</ItemGroup>

@@ -39,6 +39,10 @@ For optimal functionality of this modification, ensure you have the following ve
 > [!WARNING]
 > Avoid using MelonLoader v0.6.2 as ModSettings isn't compatible yet!
 
+### Incompatible Mods:
+
+Currently no mods are incompatible, but when there are some, avoid using the following mods with this modification as combining this mod with incompatible ones might result in game crashes, data loss, or unforeseen issues. 
+
 ---
 
 ## USEFUL LINKS:

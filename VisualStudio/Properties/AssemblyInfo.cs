@@ -1,4 +1,4 @@
-﻿using BuildInfo = ItemRarities.BuildInfo;
+﻿using BuildInfo = ItemRarities.Properties.BuildInfo;
 
 [assembly: AssemblyTitle(BuildInfo.Name)]
 [assembly: AssemblyDescription(BuildInfo.Description)]
@@ -12,9 +12,9 @@
 [assembly: AssemblyInformationalVersion(BuildInfo.Version)]
 [assembly: AssemblyFileVersion(BuildInfo.Version)]
 
-[assembly: MelonInfo(typeof(ItemRarities.Main), BuildInfo.GUIName, BuildInfo.Version, BuildInfo.Author, BuildInfo.DownloadLink)]
+[assembly: MelonInfo(typeof(ItemRarities.Mod), BuildInfo.GUIName, BuildInfo.Version, BuildInfo.Author, BuildInfo.DownloadLink)]
 [assembly: MelonGame("Hinterland", "TheLongDark")]
 
 [assembly: VerifyLoaderVersion(BuildInfo.MelonLoaderVersion, true)]
 [assembly: MelonPriority(BuildInfo.Priority)]
-[assembly: MelonIncompatibleAssemblies(BuildInfo.IncompatibleMods)]
+[assembly: MelonIncompatibleAssemblies(null)] // Put any incompatiable assemblies here like: ("DisableBreathEffect", "NonPotableToiletWater").

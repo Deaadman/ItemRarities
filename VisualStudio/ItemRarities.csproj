@@ -14,22 +14,29 @@
 		<!-- This should point to wherever your games primary EXE is -->
 		<TheLongDarkPath>C:\Program Files (x86)\Steam\steamapps\common\TheLongDark</TheLongDarkPath>
 		<ReleaseFolderPath>D:\Personal Projects\The Long Dark\Projects\Maintained\ItemRarities\Release</ReleaseFolderPath>
+		<FileVersion></FileVersion>
+		<AssemblyVersion></AssemblyVersion>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <None Remove="Data\LocalizationData.json" />
-	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <WarningLevel>6</WarningLevel>
+	</PropertyGroup>
 
-	<ItemGroup>
-	  <EmbeddedResource Include="Data\LocalizationData.json" />
-	  <EmbeddedResource Include="Data\VanillaRarities.json" />
-	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <WarningLevel>6</WarningLevel>
+	</PropertyGroup>
 
 	<!-- List of used references -->
 	<ItemGroup>
 		<PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.25.0" />
-		<PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
-		<PackageReference Include="STBlade.Modding.TLD.LocalizationUtilities" Version="2.0.0" />
+		
+		<!-- Uncomment whatever is required for your needs. -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.CraftingRevisions" Version="2.2.1" /> -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.GearSpawner" Version="2.3.1" /> -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.LocalizationUtilities" Version="2.0.0" /> -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.ModComponent" Version="6.2.1" /> -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.ModData" Version="1.5.1" /> -->
+		<!-- <PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" /> -->
 	</ItemGroup>
 
 	<!-- Most commonly used using's. Add to this so you dont need to define them in the cs files -->
@@ -40,9 +47,14 @@
 		<Using Include="HarmonyLib" />
 		<Using Include="MelonLoader" />
 		<Using Include="UnityEngine" />
-
-		<Using Include="ModSettings" />
-		<Using Include="LocalizationUtilities" />
+		
+		<!-- Uncomment whatever is required for your needs. -->
+		<!-- <Using Include="CraftingRevisions" /> -->
+		<!-- <Using Include="GearSpawner" /> -->
+		<!-- <Using Include="LocalizationUtilities" /> -->
+		<!-- <Using Include="ModComponent" /> -->
+		<!-- <Using Include="ModData" /> -->
+		<!--<Using Include="ModSettings" /> -->
 	</ItemGroup>
 
 	<!-- This is a build event. It will copy your dll to the currently defined TheLongDarkPath's Mods folder -->
